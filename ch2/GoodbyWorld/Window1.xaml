@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Window1" Height="300" Width="300">
     <Grid>
-        
+        <Button Height="23" HorizontalAlignment="Left" Margin="38,35,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click">Button</Button>
+        <TextBlock FontSize="16" Name="textBlock1" VerticalAlignment="Center" HorizontalAlignment="Center" xml:space="preserve"><Bold>Goodbye</Bold> world, <Rectangle Width="20" Height="20" Fill="Blue"/> hello    <Italic>Mars!</Italic></TextBlock>
     </Grid>
 </Window>

@@ -23,5 +23,10 @@ namespace GoodbyWorld
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Please don't click this button again");
+        }
     }
 }
