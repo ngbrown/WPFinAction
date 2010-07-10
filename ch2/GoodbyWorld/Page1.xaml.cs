@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace GoodbyWorld
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Page1 : Page
     {
-        public Window1()
+        public Page1()
         {
             InitializeComponent();
         }
