@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Window1" Height="244" Width="242">
     <Canvas>
-        <Button Canvas.Left="119" Canvas.Top="24" Height="23" Name="button1" Width="75">Button</Button>
-        <Button Canvas.Left="44" Canvas.Top="69" Height="23" Name="button2" Width="75">Button</Button>
-        <Button Canvas.Left="78" Canvas.Top="119" Height="23" Name="button3" Width="75">Button</Button>
+        <Button Canvas.Left="119" Canvas.Top="24" Name="button1">Button</Button>
+        <Button Canvas.Left="44" Canvas.Top="69" Name="button2">Button</Button>
+        <Button Canvas.Left="78" Canvas.Top="119" Name="button3">Button</Button>
     </Canvas>
 </Window>
