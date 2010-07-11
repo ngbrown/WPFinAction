@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Hey!" Height="157" Width="364">
     <Grid>
-        <Label Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" Width="120">Please enter a value:</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" Width="120">Bitte einen Wert eingben:</Label>
         <TextBox Margin="12,46,12,50" Name="textBox1" />
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,12,11" Name="button1" VerticalAlignment="Bottom" Width="75">Help</Button>
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,93,11" Name="button2" VerticalAlignment="Bottom" Width="75">Cancel</Button>
-        <Button Height="23" Margin="0,0,174,11" Name="button3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75">OK</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,12,11" Name="button1" VerticalAlignment="Bottom" Width="50">Bitte Hilfe</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,68,11" Name="button2" VerticalAlignment="Bottom" Width="50">Abbrechen</Button>
+        <Button Height="23" Margin="168,0,124,11" Name="button3" VerticalAlignment="Bottom">OK</Button>
     </Grid>
 </Window>
