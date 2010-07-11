@@ -117,6 +117,8 @@ namespace Calculator
                 Operator op = (Operator)btn.Tag;
                 ExecuteLastOperator(op);
             }
+
+            this.Resources["myBrush"] = new SolidColorBrush(Colors.Gray);
         }
 
         private void OnClickDecimal(object sender, RoutedEventArgs e)
@@ -126,9 +128,6 @@ namespace Calculator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Resources["myBrush"] = new SolidColorBrush(Colors.Green);
-            Application.Current.Resources["myBrush"] = new SolidColorBrush(Colors.Green);
-            button9.BorderBrush = (Brush)TryFindResource("myBrush");
         }
     }
 }
