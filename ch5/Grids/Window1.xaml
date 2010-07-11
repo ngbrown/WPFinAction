@@ -11,6 +11,6 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Name="button1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Grid.ColumnSpan="2">Button</Button>
+        <Button Grid.Column="0" Grid.Row="0" Name="button1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Grid.RowSpan="2">Button</Button>
     </Grid>
 </Window>
