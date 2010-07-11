@@ -101,5 +101,85 @@ namespace Calculator
             textBoxDisplay.Text = newValue;
             numberHitSinceLastOperator = true;
         }
+
+        private void OnClick0(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(0);
+        }
+
+        private void OnClick1(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(1);
+        }
+
+        private void OnClick2(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(2);
+        }
+
+        private void OnClick3(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(3);
+        }
+
+        private void OnClick4(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(4);
+        }
+
+        private void OnClick5(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(5);
+        }
+
+        private void OnClick6(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(6);
+        }
+
+        private void OnClick7(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(7);
+        }
+
+        private void OnClick8(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(8);
+        }
+
+        private void OnClick9(object sender, RoutedEventArgs e)
+        {
+            HandleDigit(9);
+        }
+
+        private void OnClickDivide(object sender, RoutedEventArgs e)
+        {
+            ExecuteLastOperator(Operator.Divide);
+        }
+
+        private void OnClickTimes(object sender, RoutedEventArgs e)
+        {
+            ExecuteLastOperator(Operator.Times);
+        }
+
+        private void OnClickMinus(object sender, RoutedEventArgs e)
+        {
+            ExecuteLastOperator(Operator.Minus);
+        }
+
+        private void OnClickDecimal(object sender, RoutedEventArgs e)
+        {
+            HandleDecimal();
+        }
+
+        private void OnClickEquals(object sender, RoutedEventArgs e)
+        {
+            ExecuteLastOperator(Operator.Equals);
+        }
+
+        private void OnClickPlus(object sender, RoutedEventArgs e)
+        {
+            ExecuteLastOperator(Operator.Plus);
+        }
     }
 }
