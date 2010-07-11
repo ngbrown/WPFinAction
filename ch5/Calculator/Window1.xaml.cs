@@ -112,9 +112,9 @@ namespace Calculator
         private void OnClickOperator(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            if (btn.Tag != null)
+            if (btn.Tag is string)
             {
-                Operator op = (Operator)btn.Tag;
+                Operator op = (Operator)Enum.Parse(typeof(Operator), btn.Tag.ToString());
                 ExecuteLastOperator(op);
             }
         }
@@ -122,15 +122,6 @@ namespace Calculator
         private void OnClickDecimal(object sender, RoutedEventArgs e)
         {
             HandleDecimal();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            buttonPlus.Tag = Operator.Plus;
-            buttonMinus.Tag = Operator.Minus;
-            buttonTimes.Tag = Operator.Times;
-            buttonDivide.Tag = Operator.Divide;
-            buttonEquals.Tag = Operator.Equals;
         }
     }
 }
