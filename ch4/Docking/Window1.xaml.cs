@@ -23,5 +23,12 @@ namespace Docking
         {
             InitializeComponent();
         }
+
+        protected void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button buttonRight = new Button { Content = "Right" };
+            DockPanel.SetDock(buttonRight, Dock.Right);
+            dockPanel1.Children.Insert(0, buttonRight);
+        }
     }
 }
