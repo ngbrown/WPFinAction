@@ -1,8 +1,14 @@
 ﻿<Window x:Class="Docks.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Window1" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    Title="Docks" Height="300" Width="300">
+    <DockPanel>
+        <Button Width="200" DockPanel.Dock="Top">First</Button>
+
+        <Button DockPanel.Dock="Top">Second</Button>
+        <Button DockPanel.Dock="Top">Third</Button>
+        <Button DockPanel.Dock="Top">Fourth</Button>
+        <Button Padding="10 4" HorizontalAlignment="Right" DockPanel.Dock="Top">Fifth</Button>
+        <Button HorizontalAlignment="Stretch" DockPanel.Dock="Top">Sixth</Button>
+    </DockPanel>
 </Window>
