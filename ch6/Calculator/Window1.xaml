@@ -10,7 +10,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Ellipse Fill="LightGreen" />
+                        <Grid>
+                            <Ellipse Fill="LightGreen" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
