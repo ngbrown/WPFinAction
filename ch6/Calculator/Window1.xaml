@@ -6,14 +6,14 @@
     Loaded="Window_Loaded">
     <Window.Resources>
         <SolidColorBrush x:Key="myBrush" Color="Red" />
-        <Style x:Key="CalcButtonStyle" TargetType="Button">
+        <Style TargetType="Button">
             <Setter Property="Margin" Value="10" />
             <Setter Property="BorderBrush" Value="{DynamicResource myBrush}" />
         </Style>
-        <Style x:Key="DigitButtonStyle" BasedOn="{StaticResource CalcButtonStyle}" TargetType="Button">
+        <Style x:Key="DigitButtonStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
             
         </Style>
-        <Style x:Key="OperatorButtonStyle" BasedOn="{StaticResource CalcButtonStyle}" TargetType="Button">
+        <Style x:Key="OperatorButtonStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
             <Setter Property="BorderBrush" Value="Green" />
             <Setter Property="FontWeight" Value="UltraBold" />
         </Style>
