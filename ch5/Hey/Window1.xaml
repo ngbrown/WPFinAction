@@ -3,10 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Hey!" Height="157" Width="364">
     <Grid>
-        <Label Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top">Bitte einen Wert eingben:</Label>
-        <TextBox Margin="12,46,12,50" Name="textBox1" />
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,12,11" Name="button1" VerticalAlignment="Bottom">Bitte Hilfe</Button>
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,68,11" Name="button2" VerticalAlignment="Bottom">Abbrechen</Button>
-        <Button Height="23" Margin="168,0,124,11" Name="button3" VerticalAlignment="Bottom">OK</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78*" />
+            <RowDefinition Height="41*" />
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Left" Margin="12,12,0,38" Name="label1" Width="144.583">Bitte einen Wert eingben:</Label>
+        <TextBox Margin="12,0,12,9" Name="textBox1" Height="23" VerticalAlignment="Bottom" />
+        <Grid Grid.Row="1" IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Margin="3,0" Name="button1" Height="23" VerticalAlignment="Center">OK</Button>
+            <Button Grid.Column="2" Margin="3,0" Name="button2" Height="23" VerticalAlignment="Center">Abbrechen</Button>
+            <Button Grid.Column="3" Margin="3,0" Name="button3" Height="23" VerticalAlignment="Center">Bitte Hilfe</Button>
+        </Grid>
     </Grid>
 </Window>
