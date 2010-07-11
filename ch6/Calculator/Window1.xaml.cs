@@ -123,5 +123,12 @@ namespace Calculator
         {
             HandleDecimal();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Resources["myBrush"] = new SolidColorBrush(Colors.Green);
+            Application.Current.Resources["myBrush"] = new SolidColorBrush(Colors.Green);
+            button9.BorderBrush = (Brush)TryFindResource("myBrush");
+        }
     }
 }
