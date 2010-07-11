@@ -112,9 +112,9 @@ namespace Calculator
         private void OnClickOperator(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            if (btn.Tag is string)
+            if (btn.Tag != null)
             {
-                Operator op = (Operator)Enum.Parse(typeof(Operator), btn.Tag.ToString());
+                Operator op = (Operator)btn.Tag;
                 ExecuteLastOperator(op);
             }
         }
