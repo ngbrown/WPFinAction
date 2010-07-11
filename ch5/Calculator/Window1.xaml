@@ -21,19 +21,19 @@
             <Bold>WPF</Bold> <Italic>In Action</Italic> Calculator
         </TextBlock>
         <TextBox Name="textBoxDisplay" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right">0</TextBox>
-        <Button Grid.Column="0" Grid.Row="2" Name="button7" Margin="5" Click="OnClick7">7</Button>
-        <Button Grid.Column="1" Grid.Row="2" Name="button8" Margin="5" Click="OnClick8">8</Button>
-        <Button Grid.Column="2" Grid.Row="2" Name="button9" Margin="5" Click="OnClick9">9</Button>
+        <Button Grid.Column="0" Grid.Row="2" Name="button7" Margin="5" Click="OnClickDigit">7</Button>
+        <Button Grid.Column="1" Grid.Row="2" Name="button8" Margin="5" Click="OnClickDigit">8</Button>
+        <Button Grid.Column="2" Grid.Row="2" Name="button9" Margin="5" Click="OnClickDigit">9</Button>
         <Button Grid.Column="3" Grid.Row="2" Name="buttonDivide" Margin="5" Click="OnClickDivide">/</Button>
-        <Button Grid.Column="0" Grid.Row="3" Name="button4" Margin="5" Click="OnClick4">4</Button>
-        <Button Grid.Column="1" Grid.Row="3" Name="button5" Margin="5" Click="OnClick5">5</Button>
-        <Button Grid.Column="2" Grid.Row="3" Name="button6" Margin="5" Click="OnClick6">6</Button>
+        <Button Grid.Column="0" Grid.Row="3" Name="button4" Margin="5" Click="OnClickDigit">4</Button>
+        <Button Grid.Column="1" Grid.Row="3" Name="button5" Margin="5" Click="OnClickDigit">5</Button>
+        <Button Grid.Column="2" Grid.Row="3" Name="button6" Margin="5" Click="OnClickDigit">6</Button>
         <Button Grid.Column="3" Grid.Row="3" Name="buttonTimes" Margin="5" Click="OnClickTimes">X</Button>
-        <Button Grid.Column="0" Grid.Row="4" Name="button1" Margin="5" Click="OnClick1">1</Button>
-        <Button Grid.Column="1" Grid.Row="4" Name="button2" Margin="5" Click="OnClick2">2</Button>
-        <Button Grid.Column="2" Grid.Row="4" Name="button3" Margin="5" Click="OnClick3">3</Button>
+        <Button Grid.Column="0" Grid.Row="4" Name="button1" Margin="5" Click="OnClickDigit">1</Button>
+        <Button Grid.Column="1" Grid.Row="4" Name="button2" Margin="5" Click="OnClickDigit">2</Button>
+        <Button Grid.Column="2" Grid.Row="4" Name="button3" Margin="5" Click="OnClickDigit">3</Button>
         <Button Grid.Column="3" Grid.Row="4" Name="buttonMinus" Margin="5"  Click="OnClickMinus">-</Button>
-        <Button Grid.Column="0" Grid.Row="5" Name="button0" Margin="5" Click="OnClick0">0</Button>
+        <Button Grid.Column="0" Grid.Row="5" Name="button0" Margin="5" Click="OnClickDigit">0</Button>
         <Button Grid.Column="1" Grid.Row="5" Name="buttonDecimal" Margin="5" Click="OnClickDecimal">.</Button>
         <Button Grid.Column="2" Grid.Row="5" Name="buttonEquals" Margin="5"  Click="OnClickEquals">=</Button>
         <Button Grid.Column="3" Grid.Row="5" Name="buttonPlus" Margin="5" Click="OnClickPlus">+</Button>

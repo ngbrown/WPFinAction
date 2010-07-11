@@ -102,54 +102,11 @@ namespace Calculator
             numberHitSinceLastOperator = true;
         }
 
-        private void OnClick0(object sender, RoutedEventArgs e)
+        private void OnClickDigit(object sender, RoutedEventArgs e)
         {
-            HandleDigit(0);
-        }
-
-        private void OnClick1(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(1);
-        }
-
-        private void OnClick2(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(2);
-        }
-
-        private void OnClick3(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(3);
-        }
-
-        private void OnClick4(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(4);
-        }
-
-        private void OnClick5(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(5);
-        }
-
-        private void OnClick6(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(6);
-        }
-
-        private void OnClick7(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(7);
-        }
-
-        private void OnClick8(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(8);
-        }
-
-        private void OnClick9(object sender, RoutedEventArgs e)
-        {
-            HandleDigit(9);
+            Button btn = sender as Button;
+            int digit = Convert.ToInt32(btn.Content.ToString());
+            HandleDigit(digit);
         }
 
         private void OnClickDivide(object sender, RoutedEventArgs e)
