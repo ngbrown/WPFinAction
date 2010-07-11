@@ -1,8 +1,23 @@
 ﻿<Window x:Class="Wraps.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Window1" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    Title="Wraps" Height="147" Width="187">
+    <WrapPanel>
+        <Button Width="30">A</Button>
+        <Button Width="30">B</Button>
+        <Button Width="30">C</Button>
+        <Button Width="30">D</Button>
+        <Button Width="30">E</Button>
+        <Button Width="30">F</Button>
+        <Button Width="30">G</Button>
+        <Button Width="30">H</Button>
+        <Button Width="30">I</Button>
+        <Button Width="30">J</Button>
+        <Button Width="30">K</Button>
+        <Button Width="30">L</Button>
+        <Button Width="30">M</Button>
+        <Button Width="30">N</Button>
+        <Button Width="30">O</Button>
+        <Button Width="30">P</Button>
+    </WrapPanel>
 </Window>
