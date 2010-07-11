@@ -7,8 +7,14 @@
     <Window.Resources>
         <SolidColorBrush x:Key="myBrush" Color="Red" />
         <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Ellipse Fill="LightGreen" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Margin" Value="10" />
-            <Setter Property="BorderBrush" Value="{DynamicResource myBrush}" />
         </Style>
         <Style x:Key="DigitButtonStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
             
