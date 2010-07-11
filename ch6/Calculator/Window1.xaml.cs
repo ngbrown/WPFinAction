@@ -128,8 +128,6 @@ namespace Calculator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            button9.SetResourceReference(Button.BorderBrushProperty, "myBrush");
-            button1.Style = (Style)FindResource("DigitButtonStyle");
         }
     }
 }

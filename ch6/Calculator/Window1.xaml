@@ -11,12 +11,13 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid>
-                            <Ellipse Fill="LightGreen" />
+                            <Ellipse Fill="LightGreen" Stroke="{TemplateBinding Control.BorderBrush}" />
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource myBrush}" />
             <Setter Property="Margin" Value="10" />
         </Style>
         <Style x:Key="DigitButtonStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
