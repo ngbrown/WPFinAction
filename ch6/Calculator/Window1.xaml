@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Calculator"
     Title="Calculator" Height="300" Width="300" Background="Transparent">
+    <Window.Resources>
+        <ResourceDictionary Source="Dictionary1.xaml" />
+    </Window.Resources>
     <Grid Background="Blue">
         <Grid.RowDefinitions>
             <RowDefinition />
