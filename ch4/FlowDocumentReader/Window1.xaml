@@ -2,7 +2,18 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Flow Document Reader" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <FlowDocumentReader>
+        <FlowDocument FontSize="12" xml:space="preserve">
+            <Paragraph TextAlignment="Center" FontSize="18"><Bold>Flow Document</Bold></Paragraph>
+            <Paragraph>A FlowDocument lets you put in arbitrary content, with <Italic>formatting</Italic>, and it automatically lays out the content based of the available space - sort of like an HTML page.</Paragraph>
+            <Paragraph>I would also like to have a button here, like this: <Button>Push me</Button> Wouldn't that be cool? <RadioButton IsChecked="True">Yes</RadioButton> <RadioButton>No</RadioButton> <RadioButton>Unsure</RadioButton>? (Did you make a selection)?</Paragraph>
+            <Paragraph><Bold>You can also have lists:</Bold></Paragraph>
+            <List>
+                <ListItem><Paragraph>This is the first item</Paragraph></ListItem>
+                <ListItem><Paragraph>This is the second item</Paragraph></ListItem>
+                <ListItem><Paragraph>This item has a cicle! <Ellipse Fill="Red" Width="20" Height="20"></Ellipse></Paragraph></ListItem>
+                <ListItem><Paragraph>And this one has a squere! <Rectangle Fill="Blue" Width="20" Height="20"></Rectangle></Paragraph></ListItem>
+            </List>
+        </FlowDocument>
+    </FlowDocumentReader>
 </Window>
