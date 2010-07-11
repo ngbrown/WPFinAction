@@ -1,8 +1,41 @@
 ﻿<Window x:Class="Docking.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Window1" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    Title="Docking" Height="300" Width="300">
+    <DockPanel x:Name="dockPanel1">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File"/>
+            <MenuItem Header="_Edit"/>
+            <MenuItem Header="_Help"/>
+        </Menu>
+        <ToolBarTray Background="White" DockPanel.Dock="Top">
+            <ToolBar Band="1" BandIndex="1">
+                <Button>A</Button>
+                <Button>B</Button>
+                <Separator/>
+                <Button>C</Button>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock>Ready</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+        <StackPanel DockPanel.Dock="Left">
+            <Expander Header="Useful">
+                <StackPanel>
+                    <Button>Don't</Button>
+                    <Button>Press</Button>
+                    <Button>Me!</Button>
+                </StackPanel>
+            </Expander>
+            <Expander Header="Less useful"></Expander>
+            <Expander Header="Silly"></Expander>
+        </StackPanel>
+        <Button Padding="10 10">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">
+                This is all of the remaining space that is not docked
+            </TextBlock>
+        </Button>
+    </DockPanel>
 </Window>
