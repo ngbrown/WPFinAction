@@ -109,19 +109,14 @@ namespace Calculator
             HandleDigit(digit);
         }
 
-        private void OnClickDivide(object sender, RoutedEventArgs e)
+        private void OnClickOperator(object sender, RoutedEventArgs e)
         {
-            ExecuteLastOperator(Operator.Divide);
-        }
-
-        private void OnClickTimes(object sender, RoutedEventArgs e)
-        {
-            ExecuteLastOperator(Operator.Times);
-        }
-
-        private void OnClickMinus(object sender, RoutedEventArgs e)
-        {
-            ExecuteLastOperator(Operator.Minus);
+            Button btn = sender as Button;
+            if (btn.Tag != null)
+            {
+                Operator op = (Operator)btn.Tag;
+                ExecuteLastOperator(op);
+            }
         }
 
         private void OnClickDecimal(object sender, RoutedEventArgs e)
@@ -129,14 +124,13 @@ namespace Calculator
             HandleDecimal();
         }
 
-        private void OnClickEquals(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ExecuteLastOperator(Operator.Equals);
-        }
-
-        private void OnClickPlus(object sender, RoutedEventArgs e)
-        {
-            ExecuteLastOperator(Operator.Plus);
+            buttonPlus.Tag = Operator.Plus;
+            buttonMinus.Tag = Operator.Minus;
+            buttonTimes.Tag = Operator.Times;
+            buttonDivide.Tag = Operator.Divide;
+            buttonEquals.Tag = Operator.Equals;
         }
     }
 }
