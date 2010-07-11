@@ -4,8 +4,8 @@
     Title="Window1" Height="300" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="146*" />
-            <ColumnDefinition Width="146*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
     </Grid>
 </Window>
