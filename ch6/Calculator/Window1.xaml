@@ -4,7 +4,14 @@
     xmlns:local="clr-namespace:Calculator"
     Title="Calculator" Height="300" Width="300" Background="Transparent">
     <Window.Resources>
-        <ResourceDictionary Source="Dictionary1.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml" />
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="myBrush" Color="Red" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid Background="Blue">
         <Grid.RowDefinitions>
