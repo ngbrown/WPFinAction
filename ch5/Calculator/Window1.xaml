@@ -5,7 +5,7 @@
     <Grid>
         <Grid.Background>
             <RadialGradientBrush>
-                <GradientStop Offset="0" Color="Blue" />
+                <GradientStop Offset="0" Color="{DynamicResource {x:Static SystemColors.DesktopColorKey}}" />
                 <GradientStop Offset="1" Color="White" />
             </RadialGradientBrush>
         </Grid.Background>
