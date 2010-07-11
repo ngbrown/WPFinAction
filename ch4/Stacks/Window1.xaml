@@ -5,9 +5,13 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
         <StackPanel Orientation="Vertical">
             <Button Width="200">First</Button>
-            <Button HorizontalAlignment="Left">Second</Button>
-            <Button Padding="10 4">Third</Button>
-            <Button Margin="20 20">Fourth</Button>
+            <Expander Header="Expand me" BorderThickness="3" BorderBrush="Black">
+                <StackPanel>
+                    <Button>Second</Button>
+                    <Button>Third</Button>
+                    <Button>Fourth</Button>
+                </StackPanel>
+            </Expander>
             <Button Padding="10 4" HorizontalAlignment="Right">Fifth</Button>
             <Button HorizontalAlignment="Stretch">Sixth</Button>
         </StackPanel>
