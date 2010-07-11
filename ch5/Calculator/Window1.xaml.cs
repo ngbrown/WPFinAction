@@ -14,14 +14,92 @@ using System.Windows.Shapes;
 
 namespace Calculator
 {
+    public enum Operator
+    {
+        None = 0,
+        Plus,
+        Minus,
+        Times,
+        Divide,
+        Equals
+    }
+
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
     public partial class Window1 : Window
     {
+        private Operator lastOperator = Operator.None;
+        private decimal valueSoFar = 0;
+        private bool numberHitSinceLastOperator = false;
+
         public Window1()
         {
             InitializeComponent();
+        }
+
+        private void ExecuteLastOperator(Operator newOperator)
+        {
+            decimal currentValue = Convert.ToDecimal(textBoxDisplay.Text);
+            decimal newValue = currentValue;
+
+            if (numberHitSinceLastOperator)
+            {
+                switch (lastOperator)
+                {
+                    case Operator.Plus:
+                        newValue = valueSoFar + currentValue;
+                        break;
+                    case Operator.Minus:
+                        newValue = valueSoFar - currentValue;
+                        break;
+                    case Operator.Times:
+                        newValue = valueSoFar * currentValue;
+                        break;
+                    case Operator.Divide:
+                        if (currentValue == 0)
+                            newValue = 0;
+                        else
+                            newValue = valueSoFar / currentValue;
+                        break;
+                    case Operator.Equals:
+                        newValue = currentValue;
+                        break;
+                }
+            }
+
+            valueSoFar = newValue;
+            lastOperator = newOperator;
+            numberHitSinceLastOperator = false;
+            textBoxDisplay.Text = valueSoFar.ToString();
+        }
+
+        private void HandleDigit(int digit)
+        {
+            string valueSoFar = numberHitSinceLastOperator ? textBoxDisplay.Text : "";
+            string newValue = valueSoFar + digit.ToString();
+
+            textBoxDisplay.Text = newValue;
+            numberHitSinceLastOperator = true;
+        }
+
+        private void HandleDecimal()
+        {
+            string valueSoFar = numberHitSinceLastOperator ? textBoxDisplay.Text : "";
+            string newValue = "";
+
+            if (valueSoFar.IndexOf(".") < 0)
+            {
+                if (valueSoFar.Length == 0)
+                    newValue = "0.";
+                else
+                    newValue = valueSoFar + ".";
+            }
+            else
+                newValue = valueSoFar;
+
+            textBoxDisplay.Text = newValue;
+            numberHitSinceLastOperator = true;
         }
     }
 }
