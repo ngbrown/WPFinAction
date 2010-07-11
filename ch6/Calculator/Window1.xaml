@@ -11,9 +11,14 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid>
-                            <Ellipse Fill="LightGreen" Stroke="{TemplateBinding Control.BorderBrush}" />
+                            <Ellipse x:Name="theEllipse" Fill="LightGreen" Stroke="{TemplateBinding Control.BorderBrush}" />
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="theEllipse" Property="Fill" Value="Yellow" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
