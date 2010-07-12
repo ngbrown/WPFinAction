@@ -123,5 +123,15 @@ namespace Calculator
         {
             HandleDecimal();
         }
+
+        private void OnAnyButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)e.OriginalSource;
+
+            if (btn.Tag is Operator)
+                OnClickOperator(e.OriginalSource, e);
+            else
+                OnClickDigit(e.OriginalSource, e);
+        }
     }
 }
