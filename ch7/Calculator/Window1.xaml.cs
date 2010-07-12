@@ -134,5 +134,46 @@ namespace Calculator
             else
                 OnClickDigit(e.OriginalSource, e);
         }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.D0) && (e.Key <= Key.D9))
+            {
+                int digit = (int)(e.Key - Key.D0);
+                HandleDigit(digit);
+            }
+            else if ((e.Key >= Key.NumPad0) && (e.Key <= Key.NumPad9))
+            {
+                int digit = (int)(e.Key - Key.NumPad0);
+                HandleDigit(digit);
+            }
+            else
+            {
+                switch (e.Key)
+                {
+                    case Key.Add:
+                        ExecuteLastOperator(Operator.Plus);
+                        break;
+                    case Key.Subtract:
+                        ExecuteLastOperator(Operator.Minus);
+                        break;
+                    case Key.Divide:
+                        ExecuteLastOperator(Operator.Divide);
+                        break;
+                    case Key.Multiply:
+                        ExecuteLastOperator(Operator.Times);
+                        break;
+                    case Key.OemPlus:
+                    case Key.Enter:
+                        ExecuteLastOperator(Operator.Equals);
+                        break;
+                    case Key.Decimal:
+                        HandleDecimal();
+                        break;
+                }
+            }
+
+            e.Handled = true;
+        }
     }
 }
