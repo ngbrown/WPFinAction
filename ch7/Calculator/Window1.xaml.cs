@@ -122,6 +122,7 @@ namespace Calculator
         private void OnClickDecimal(object sender, RoutedEventArgs e)
         {
             HandleDecimal();
+            e.Handled = true;
         }
 
         private void OnAnyButtonClick(object sender, RoutedEventArgs e)
