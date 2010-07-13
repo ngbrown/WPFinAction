@@ -175,5 +175,15 @@ namespace Calculator
 
             e.Handled = true;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            AddHandler(Button.ClickEvent, new RoutedEventHandler(OnAnyClickOnForm));
+        }
+
+        private void OnAnyClickOnForm(object sender, RoutedEventArgs e)
+        {
+            System.Media.SystemSounds.Beep.Play();
+        }
     }
 }

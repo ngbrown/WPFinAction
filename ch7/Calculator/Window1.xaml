@@ -2,7 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Calculator"
-    Title="Calculator" Height="300" Width="300" Background="Transparent">
+    Title="Calculator" Height="300" Width="300" Background="Transparent"
+    Loaded="Window_Loaded">
     <Grid Background="Blue" Button.Click="OnAnyButtonClick" PreviewKeyDown="OnKeyDown">
         <Grid.RowDefinitions>
             <RowDefinition />
