@@ -33,6 +33,11 @@ namespace Calculator
         private decimal valueSoFar = 0;
         private bool numberHitSinceLastOperator = false;
 
+        static Window1()
+        {
+            EventManager.RegisterClassHandler(typeof(Button), Button.ClickEvent, new RoutedEventHandler(ClassButtonHandler));
+        }
+
         public Window1()
         {
             InitializeComponent();
@@ -178,10 +183,9 @@ namespace Calculator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            AddHandler(Button.ClickEvent, new RoutedEventHandler(OnAnyClickOnForm), true);
         }
 
-        private void OnAnyClickOnForm(object sender, RoutedEventArgs e)
+        private static void ClassButtonHandler(object sender, RoutedEventArgs e)
         {
             System.Media.SystemSounds.Beep.Play();
         }
