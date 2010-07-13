@@ -178,7 +178,7 @@ namespace Calculator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            AddHandler(Button.ClickEvent, new RoutedEventHandler(OnAnyClickOnForm));
+            AddHandler(Button.ClickEvent, new RoutedEventHandler(OnAnyClickOnForm), true);
         }
 
         private void OnAnyClickOnForm(object sender, RoutedEventArgs e)
