@@ -86,7 +86,7 @@
     </Window.Resources>
     <Grid Background="Blue" Button.Click="OnAnyButtonClick" PreviewKeyDown="OnKeyDown">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="1.5*" />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -99,9 +99,13 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" FontSize="24" VerticalAlignment="Center">
-            <Bold>WPF</Bold> <Italic>In Action</Italic> Calculator
-        </TextBlock>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center">
+            <TextBlock Height="25" x:Name="titleBlock" Foreground="White" 
+                       FontSize="24" HorizontalAlignment="Left">
+                <Bold>WPF</Bold> <Italic>In Action</Italic> Calculator
+            </TextBlock>
+            <Rectangle Height="25" />
+        </StackPanel>
         <TextBox Name="textBoxDisplay" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" 
                  VerticalContentAlignment="Center" HorizontalContentAlignment="Right">0
             <TextBox.Triggers>
