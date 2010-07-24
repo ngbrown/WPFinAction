@@ -31,6 +31,15 @@
                                     </LinearGradientBrush>
                                 </Rectangle.Fill>
                             </Rectangle>
+                            <Rectangle x:Name="buttonHoverGlow" Opacity="0" RadiusX="10" RadiusY="10">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="White" Offset="0" />
+                                        <GradientStop Color="White" Offset="0.1" />
+                                        <GradientStop Color="Transparent" Offset="0.6" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="Button.IsMouseOver" Value="True">
@@ -39,6 +48,7 @@
                                         <OuterGlowBitmapEffect GlowColor="Violet" GlowSize="10" />
                                     </Setter.Value>
                                 </Setter>
+                                <Setter TargetName="buttonHoverGlow" Property="Opacity" Value="1" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
