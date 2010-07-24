@@ -35,6 +35,24 @@
                     </Grid.RowDefinitions>
                     <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="5" />
                 </Grid>
+                <StackPanel>
+                    <Expander Header="Favorites" IsExpanded="True">
+                        <ListBox BorderThickness="0">
+                            <ListBoxItem>WPF</ListBoxItem>
+                            <ListBoxItem>.NET 3.5</ListBoxItem>
+                        </ListBox>
+                    </Expander>
+                    <Expander Header="All Labels" IsExpanded="True">
+                        <ListBox BorderThickness="0">
+                            <ListBoxItem>WPF</ListBoxItem>
+                            <ListBoxItem>WCF</ListBoxItem>
+                            <ListBoxItem>WF</ListBoxItem>
+                            <ListBoxItem>LINQ</ListBoxItem>
+                            <ListBoxItem>CardSpace</ListBoxItem>
+                            <ListBoxItem>.NET 3.5</ListBoxItem>
+                        </ListBox>
+                    </Expander>
+                </StackPanel>
             </Grid>
         </DockPanel>
     </Grid>
