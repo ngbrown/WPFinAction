@@ -35,6 +35,8 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#AF000000" />
         </Style>
     </Window.Resources>
     <Grid Background="Blue" Button.Click="OnAnyButtonClick" PreviewKeyDown="OnKeyDown">
