@@ -6,7 +6,12 @@
         <DockPanel LastChildFill="True">
             <Menu Height="22" Name="menu1" DockPanel.Dock="Top">
                 <MenuItem Header="File" />
-                <MenuItem Header="Edit" />
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Cut" Command="Cut" />
+                    <MenuItem Header="Copy" Command="Copy" />
+                    <MenuItem Header="Paste" Command="Paste" />
+                    <MenuItem Header="Delete" Command="Delete" />
+                </MenuItem>
                 <MenuItem Header="Format" />
                 <MenuItem Header="Tools" />
                 <MenuItem Header="Help" />
@@ -34,6 +39,7 @@
                         <RowDefinition Height="1*" MinHeight="50" />
                     </Grid.RowDefinitions>
                     <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="5" />
+                    <RichTextBox Grid.Row="2" Name="richTextBox1" />
                 </Grid>
                 <StackPanel>
                     <Expander Header="Favorites" IsExpanded="True">
