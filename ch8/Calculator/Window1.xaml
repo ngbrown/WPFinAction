@@ -104,7 +104,11 @@
                        FontSize="24" HorizontalAlignment="Left">
                 <Bold>WPF</Bold> <Italic>In Action</Italic> Calculator
             </TextBlock>
-            <Rectangle Height="27" />
+            <Rectangle Height="27">
+                <Rectangle.Fill>
+                    <VisualBrush Visual="{Binding ElementName=titleBlock}" Stretch="None" AlignmentX="Left" />
+                </Rectangle.Fill>
+            </Rectangle>
         </StackPanel>
         <TextBox Name="textBoxDisplay" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" 
                  VerticalContentAlignment="Center" HorizontalContentAlignment="Right">0
