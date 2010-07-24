@@ -1,0 +1,59 @@
+﻿<Window x:Class="Desktop_Wiki.WikiWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Wiki In Action" Height="300" Width="300">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Menu Height="22" Name="menu1" DockPanel.Dock="Top">
+                <MenuItem Header="File" />
+                <MenuItem Header="Edit" />
+                <MenuItem Header="Format" />
+                <MenuItem Header="Tools" />
+                <MenuItem Header="Help" />
+            </Menu>
+            <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button>Next</Button>
+                    <Button>Print</Button>
+                    <Button>Spell Check</Button>
+                    <Button>Options</Button>
+                </ToolBar>
+            </ToolBarTray>
+            <StatusBar Height="23" Name="statusBar1" DockPanel.Dock="Bottom" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" MinWidth="50" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="2*" MinWidth="50" />
+                </Grid.ColumnDefinitions>
+                <GridSplitter Grid.Column="1" HorizontalAlignment="Center" Width="5" />
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" MinHeight="50" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="1*" MinHeight="50" />
+                    </Grid.RowDefinitions>
+                    <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="5" />
+                </Grid>
+                <StackPanel>
+                    <Expander Header="Favorites" IsExpanded="True">
+                        <ListBox BorderThickness="0">
+                            <ListBoxItem>WPF</ListBoxItem>
+                            <ListBoxItem>.NET 3.5</ListBoxItem>
+                        </ListBox>
+                    </Expander>
+                    <Expander Header="All Labels" IsExpanded="True">
+                        <ListBox BorderThickness="0">
+                            <ListBoxItem>WPF</ListBoxItem>
+                            <ListBoxItem>WCF</ListBoxItem>
+                            <ListBoxItem>WF</ListBoxItem>
+                            <ListBoxItem>LINQ</ListBoxItem>
+                            <ListBoxItem>CardSpace</ListBoxItem>
+                            <ListBoxItem>.NET 3.5</ListBoxItem>
+                        </ListBox>
+                    </Expander>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
