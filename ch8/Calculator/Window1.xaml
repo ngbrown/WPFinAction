@@ -48,11 +48,22 @@
                                         <OuterGlowBitmapEffect GlowColor="Violet" GlowSize="10" />
                                     </Setter.Value>
                                 </Setter>
-                                <Setter TargetName="buttonHoverGlow" Property="Opacity" Value="1" />
                             </Trigger>
                             <Trigger Property="Button.IsPressed" Value="True">
                                 <Setter TargetName="mainButton" Property="Fill" Value="Violet" />
                             </Trigger>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                                                Storyboard.TargetName="buttonHoverGlow" 
+                                                Storyboard.TargetProperty="Opacity" 
+                                                To="1" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
