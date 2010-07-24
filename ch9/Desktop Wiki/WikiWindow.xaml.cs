@@ -9,17 +9,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Desktop_Wiki
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for WikiWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class WikiWindow : Window
     {
-        public Window1()
+        public WikiWindow()
         {
             InitializeComponent();
         }
