@@ -41,6 +41,7 @@ namespace Calculator
         public Window1()
         {
             InitializeComponent();
+            this.button0.Focus();
         }
 
         private void ExecuteLastOperator(Operator newOperator)
