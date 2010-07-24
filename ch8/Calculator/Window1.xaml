@@ -4,6 +4,20 @@
     xmlns:local="clr-namespace:Calculator"
     Title="Calculator" Height="300" Width="300" Background="Transparent"
     Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Margin="3">
+                            <Rectangle Fill="Purple" RadiusX="10" RadiusY="10" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="Blue" Button.Click="OnAnyButtonClick" PreviewKeyDown="OnKeyDown">
         <Grid.RowDefinitions>
             <RowDefinition />
