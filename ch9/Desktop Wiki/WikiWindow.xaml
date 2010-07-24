@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Wiki In Action" Height="300" Width="300">
     <Grid>
-        <DockPanel>
+        <DockPanel LastChildFill="True">
             <Menu Height="22" Name="menu1" DockPanel.Dock="Top">
                 <MenuItem Header="File" />
                 <MenuItem Header="Edit" />
@@ -11,6 +11,16 @@
                 <MenuItem Header="Tools" />
                 <MenuItem Header="Help" />
             </Menu>
+            <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button>Next</Button>
+                    <Button>Print</Button>
+                    <Button>Spell Check</Button>
+                    <Button>Options</Button>
+                </ToolBar>
+            </ToolBarTray>
+            <StatusBar Height="23" Name="statusBar1" DockPanel.Dock="Bottom" />
+            <Grid Name="grid1" />
         </DockPanel>
     </Grid>
 </Window>
