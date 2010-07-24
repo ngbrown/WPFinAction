@@ -106,7 +106,11 @@
             </TextBlock>
             <Rectangle Height="27">
                 <Rectangle.Fill>
-                    <VisualBrush Visual="{Binding ElementName=titleBlock}" Stretch="None" AlignmentX="Left" />
+                    <VisualBrush Visual="{Binding ElementName=titleBlock}" Stretch="None" AlignmentX="Left">
+                        <VisualBrush.Transform>
+                            <ScaleTransform ScaleX="1" ScaleY="-1.1" CenterY="13.5" />
+                        </VisualBrush.Transform>
+                    </VisualBrush>
                 </Rectangle.Fill>
             </Rectangle>
         </StackPanel>
