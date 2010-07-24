@@ -100,11 +100,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center">
-            <TextBlock Height="25" x:Name="titleBlock" Foreground="White" 
+            <TextBlock Height="27" x:Name="titleBlock" Foreground="White" 
                        FontSize="24" HorizontalAlignment="Left">
                 <Bold>WPF</Bold> <Italic>In Action</Italic> Calculator
             </TextBlock>
-            <Rectangle Height="25" />
+            <Rectangle Height="27" />
         </StackPanel>
         <TextBox Name="textBoxDisplay" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" 
                  VerticalContentAlignment="Center" HorizontalContentAlignment="Right">0
