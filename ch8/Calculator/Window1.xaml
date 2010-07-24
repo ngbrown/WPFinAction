@@ -50,6 +50,9 @@
                                 </Setter>
                                 <Setter TargetName="buttonHoverGlow" Property="Opacity" Value="1" />
                             </Trigger>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="mainButton" Property="Fill" Value="Violet" />
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
