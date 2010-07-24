@@ -20,13 +20,21 @@
                 </ToolBar>
             </ToolBarTray>
             <StatusBar Height="23" Name="statusBar1" DockPanel.Dock="Bottom" />
-            <Grid Name="grid1">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" MinWidth="50" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="2*" MinWidth="50" />
                 </Grid.ColumnDefinitions>
                 <GridSplitter Grid.Column="1" HorizontalAlignment="Center" Width="5" />
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" MinHeight="50" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="1*" MinHeight="50" />
+                    </Grid.RowDefinitions>
+                    <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="5" />
+                </Grid>
             </Grid>
         </DockPanel>
     </Grid>
