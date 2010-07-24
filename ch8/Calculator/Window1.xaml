@@ -112,6 +112,13 @@
                         </VisualBrush.Transform>
                     </VisualBrush>
                 </Rectangle.Fill>
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="Black" />
+                        <GradientStop Offset="0.2" Color="#7F000000" />
+                        <GradientStop Offset="1" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
             </Rectangle>
         </StackPanel>
         <TextBox Name="textBoxDisplay" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" 
