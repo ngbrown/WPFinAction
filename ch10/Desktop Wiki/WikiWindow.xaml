@@ -1,9 +1,10 @@
 ﻿<Window x:Class="Desktop_Wiki.WikiWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Desktop_Wiki"
     Title="Wiki In Action" Height="300" Width="300">
     <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpExecuted" />
+        <CommandBinding Command="{x:Static local:WikiWindow.About}" Executed="AboutExecuted" />
     </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
@@ -18,7 +19,7 @@
                 <MenuItem Header="F_ormat" />
                 <MenuItem Header="_Tools" />
                 <MenuItem Header="_Help">
-                    <MenuItem Header="About..." Command="ApplicationCommands.Help" />
+                    <MenuItem Header="About..." Command="local:WikiWindow.About" />
                 </MenuItem>
             </Menu>
             <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">

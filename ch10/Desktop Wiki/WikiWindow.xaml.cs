@@ -18,12 +18,14 @@ namespace Desktop_Wiki
     /// </summary>
     public partial class WikiWindow : Window
     {
+        public static RoutedCommand About = new RoutedCommand();
+
         public WikiWindow()
         {
             InitializeComponent();
         }
 
-        private void HelpExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void AboutExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             MessageBox.Show("Welcome to WikiInAction");
         }
