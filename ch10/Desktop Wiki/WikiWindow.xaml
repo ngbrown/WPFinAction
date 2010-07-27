@@ -15,6 +15,7 @@
                     <MenuItem Header="Copy" Command="Copy" />
                     <MenuItem Header="Paste" Command="Paste" />
                     <MenuItem Header="Delete" Command="Delete" />
+                    <MenuItem Header="Make Link" Command="local:WikiCommands.CreateLinkFromSelection" />
                 </MenuItem>
                 <MenuItem Header="F_ormat" />
                 <MenuItem Header="_Tools" />
