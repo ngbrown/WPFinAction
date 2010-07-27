@@ -31,9 +31,22 @@ namespace Desktop_Wiki
             InitializeComponent();
         }
 
-        private void AboutExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void AboutExecuted(object sender, ExecutedRoutedEventArgs args)
         {
             MessageBox.Show("Welcome to WikiInAction");
+        }
+
+        private void CreateLinkFromSelectionExecuted(object sender, ExecutedRoutedEventArgs args)
+        {
+
+        }
+
+        private void CreateLinkFromSelectionCanExecute(object sender, CanExecuteRoutedEventArgs args)
+        {
+            RichTextBox wikiEditor = sender as RichTextBox;
+            args.CanExecute = !wikiEditor.Selection.IsEmpty;
+            args.ContinueRouting = false;
+            args.Handled = true;
         }
     }
 }

@@ -58,7 +58,13 @@
                                 <Button Command="EditingCommands.ToggleUnderline">Underline</Button>
                             </ToolBar>
                         </ToolBarTray>
-                        <RichTextBox Name="richTextBox1" />
+                        <RichTextBox>
+                            <RichTextBox.CommandBindings>
+                                <CommandBinding Command="{x:Static local:WikiCommands.CreateLinkFromSelection}"
+                                                Executed="CreateLinkFromSelectionExecuted"
+                                                CanExecute="CreateLinkFromSelectionCanExecute" />
+                            </RichTextBox.CommandBindings>
+                        </RichTextBox>
                     </DockPanel>
                 </Grid>
                 <StackPanel>
