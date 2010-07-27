@@ -22,5 +22,10 @@ namespace Desktop_Wiki
         {
             InitializeComponent();
         }
+
+        private void HelpExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Welcome to WikiInAction");
+        }
     }
 }

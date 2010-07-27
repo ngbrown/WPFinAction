@@ -2,6 +2,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Wiki In Action" Height="300" Width="300">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="HelpExecuted" />
+    </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
             <Menu Height="22" Name="menu1" DockPanel.Dock="Top">
@@ -14,7 +17,9 @@
                 </MenuItem>
                 <MenuItem Header="F_ormat" />
                 <MenuItem Header="_Tools" />
-                <MenuItem Header="_Help" />
+                <MenuItem Header="_Help">
+                    <MenuItem Header="About..." Command="ApplicationCommands.Help" />
+                </MenuItem>
             </Menu>
             <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">
                 <ToolBar>
