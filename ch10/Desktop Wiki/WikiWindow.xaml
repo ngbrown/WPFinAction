@@ -5,16 +5,16 @@
     <Grid>
         <DockPanel LastChildFill="True">
             <Menu Height="22" Name="menu1" DockPanel.Dock="Top">
-                <MenuItem Header="File" />
-                <MenuItem Header="Edit">
+                <MenuItem Header="_File" />
+                <MenuItem Header="_Edit">
                     <MenuItem Header="Cut" Command="Cut" />
                     <MenuItem Header="Copy" Command="Copy" />
                     <MenuItem Header="Paste" Command="Paste" />
                     <MenuItem Header="Delete" Command="Delete" />
                 </MenuItem>
-                <MenuItem Header="Format" />
-                <MenuItem Header="Tools" />
-                <MenuItem Header="Help" />
+                <MenuItem Header="F_ormat" />
+                <MenuItem Header="_Tools" />
+                <MenuItem Header="_Help" />
             </Menu>
             <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">
                 <ToolBar>
@@ -39,7 +39,20 @@
                         <RowDefinition Height="1*" MinHeight="50" />
                     </Grid.RowDefinitions>
                     <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="5" />
-                    <RichTextBox Grid.Row="2" Name="richTextBox1" />
+                    <DockPanel Grid.Row="2">
+                        <ToolBarTray Height="26" DockPanel.Dock="Top">
+                            <ToolBar>
+                                <Button Command="EditingCommands.AlignLeft">Left</Button>
+                                <Button Command="EditingCommands.AlignCenter">Center</Button>
+                                <Button Command="EditingCommands.AlignRight">Right</Button>
+                                <Button Command="EditingCommands.AlignJustify">Justify</Button>
+                                <Button Command="EditingCommands.ToggleBold">Bold</Button>
+                                <Button Command="EditingCommands.ToggleItalic">Italic</Button>
+                                <Button Command="EditingCommands.ToggleUnderline">Underline</Button>
+                            </ToolBar>
+                        </ToolBarTray>
+                        <RichTextBox Name="richTextBox1" />
+                    </DockPanel>
                 </Grid>
                 <StackPanel>
                     <Expander Header="Favorites" IsExpanded="True">
