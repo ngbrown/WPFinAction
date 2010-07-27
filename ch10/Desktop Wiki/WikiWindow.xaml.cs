@@ -20,6 +20,12 @@ namespace Desktop_Wiki
     {
         public static RoutedCommand About = new RoutedCommand();
 
+        static WikiWindow()
+        {
+            About.InputGestures.Add(new KeyGesture(Key.F3));
+            About.InputGestures.Add(new MouseGesture(MouseAction.RightDoubleClick, ModifierKeys.Control));
+        }
+
         public WikiWindow()
         {
             InitializeComponent();
