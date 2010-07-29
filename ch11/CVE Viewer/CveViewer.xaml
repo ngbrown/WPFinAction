@@ -1,7 +1,17 @@
 ﻿<Window x:Class="CVE_Viewer.CveViewer"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:debug="clr-namespace:System.Diagnostics;assembly=WindowsBase"
     Title="CveViewer" Height="600" Width="400">
+    <Window.Resources>
+        <XmlDataProvider x:Key="cve"
+                         Source="C:\dev\Learning\WPFinAction\ch11\CVE Viewer\allitems.xml"
+                         XPath="/cve/item"
+                         IsAsynchronous="False"
+                         IsInitialLoadEnabled="True"
+                         debug:PresentationTraceSources.TraceLevel="High"
+                         />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -10,7 +20,13 @@
         </Grid.ColumnDefinitions>
         <DockPanel>
             <TextBox Name="filter" DockPanel.Dock="Top" />
-            <ListBox Name="listBox1" />
+            <ListBox Name="listBox1" ItemsSource="{Binding Source={StaticResource cve}}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding XPath=@name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </DockPanel>
         <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
         <GroupBox Grid.Column="2" Header="CVE Details">
