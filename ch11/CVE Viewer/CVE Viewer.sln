@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVE Viewer", "CVE Viewer.csproj", "{D1B5804F-E2BB-4B30-9491-D02B071C28C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B5804F-E2BB-4B30-9491-D02B071C28C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B5804F-E2BB-4B30-9491-D02B071C28C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B5804F-E2BB-4B30-9491-D02B071C28C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B5804F-E2BB-4B30-9491-D02B071C28C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
