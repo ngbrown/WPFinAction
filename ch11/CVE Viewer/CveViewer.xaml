@@ -6,7 +6,6 @@
     <Window.Resources>
         <XmlDataProvider x:Key="cve"
                          Source="C:\dev\Learning\WPFinAction\ch11\CVE Viewer\allitems.xml"
-                         XPath="/cve/item"
                          IsAsynchronous="False"
                          IsInitialLoadEnabled="True"
                          debug:PresentationTraceSources.TraceLevel="High"
@@ -20,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <DockPanel>
             <TextBox Name="filter" DockPanel.Dock="Top" />
-            <ListBox Name="listBox1" ItemsSource="{Binding Source={StaticResource cve}}">
+            <ListBox Name="listBox1" ItemsSource="{Binding Source={StaticResource cve}, XPath=/cve/item}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding XPath=@name}" />
