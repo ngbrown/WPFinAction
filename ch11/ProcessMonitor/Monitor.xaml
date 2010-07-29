@@ -13,7 +13,15 @@
                   ItemsSource="{Binding Source={StaticResource processes}}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Path=ProcessName}" />
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Path=Id}" MinWidth="80" />
+                        <TextBlock Text="{Binding Path=ProcessName}" MinWidth="180" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <Binding Path="WorkingSet" />
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
