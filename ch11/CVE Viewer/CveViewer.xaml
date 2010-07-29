@@ -1,0 +1,33 @@
+﻿<Window x:Class="CVE_Viewer.CveViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="CveViewer" Height="600" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel>
+            <TextBox Name="filter" DockPanel.Dock="Top" />
+            <ListBox Name="listBox1" />
+        </DockPanel>
+        <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <GroupBox Grid.Column="2" Header="CVE Details">
+            <StackPanel>
+                <WrapPanel>
+                    <Label Height="23">Name:</Label>
+                    <Label FontWeight="Bold" Height="23" MinWidth="100" />
+                    <Label Height="23">Status:</Label>
+                    <Label FontWeight="Bold" Height="23" MinWidth="80" />
+                </WrapPanel>
+                <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">Description</TextBlock>
+                <TextBlock TextWrapping="Wrap" Margin="10,10,10,20" />
+                <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">References</TextBlock>
+                <ListBox Margin="10,10,10,20" BorderThickness="0" />
+                <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">Comments</TextBlock>
+                <ListView Margin="10,10,10,20" BorderThickness="0" />
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
