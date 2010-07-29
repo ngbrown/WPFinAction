@@ -58,7 +58,13 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">Comments</TextBlock>
-                <ListView Margin="10,10,10,20" BorderThickness="0" />
+                <ListView ItemsSource="{Binding XPath=comments/comment}" Margin="10,10,10,20" BorderThickness="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=InnerText}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackPanel>
         </GroupBox>
     </Grid>
