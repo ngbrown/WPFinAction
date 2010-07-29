@@ -11,7 +11,11 @@
         </Grid.Resources>
         <ListView Name="listView1"
                   ItemsSource="{Binding Source={StaticResource processes}}">
-            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=ProcessName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Window>
