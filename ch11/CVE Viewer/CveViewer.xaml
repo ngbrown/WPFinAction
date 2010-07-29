@@ -29,17 +29,34 @@
         </DockPanel>
         <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
         <GroupBox Grid.Column="2" Header="CVE Details">
+            <GroupBox.DataContext>
+                <Binding ElementName="listBox1" Path="SelectedItem" />
+            </GroupBox.DataContext>
             <StackPanel>
                 <WrapPanel>
                     <Label Height="23">Name:</Label>
-                    <Label FontWeight="Bold" Height="23" MinWidth="100" />
+                    <Label FontWeight="Bold" Height="23" MinWidth="100" Content="{Binding XPath=@name}" />
                     <Label Height="23">Status:</Label>
-                    <Label FontWeight="Bold" Height="23" MinWidth="80" />
+                    <Label FontWeight="Bold" Height="23" MinWidth="80" Content="{Binding XPath=status}" />
                 </WrapPanel>
                 <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">Description</TextBlock>
-                <TextBlock TextWrapping="Wrap" Margin="10,10,10,20" />
+                <TextBlock TextWrapping="Wrap" Margin="10,10,10,20" Text="{Binding XPath=desc}" />
                 <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">References</TextBlock>
-                <ListBox Margin="10,10,10,20" BorderThickness="0" />
+                <ListBox ItemsSource="{Binding XPath=refs/ref}"  Margin="10,10,10,20" BorderThickness="0" BorderBrush="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock MinWidth="50" Text="{Binding XPath=@source}"  />
+                                <TextBlock>
+                                    <Hyperlink NavigateUri="{Binding XPath=@url}"
+                                               RequestNavigate="Hyperlink_RequestNavigate">
+                                        <TextBlock Text="{Binding Path=InnerText}" />
+                                    </Hyperlink>
+                                </TextBlock>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <TextBlock FontSize="12" FontWeight="Bold" Background="SteelBlue" Foreground="White" Padding="10,2,2,2">Comments</TextBlock>
                 <ListView Margin="10,10,10,20" BorderThickness="0" />
             </StackPanel>
