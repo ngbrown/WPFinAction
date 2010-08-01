@@ -9,7 +9,7 @@
                     <WrapPanel>
                         <TextBlock Text="{Binding Path=Id}" MinWidth="80" />
                         <TextBlock Text="{Binding Path=StartTime, StringFormat=d}" MinWidth="80"/>
-                        <TextBlock Text="{Binding Path=ProcessName}" MinWidth="180" />
+                        <TextBlock Text="{Binding Path=ProcessName, StringFormat=Process \{0\}}" MinWidth="180" />
                         <TextBlock Text="{Binding Path=WorkingSet, StringFormat=\{0:N0\} bytes}"/>
                     </WrapPanel>
                 </DataTemplate>
