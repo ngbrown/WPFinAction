@@ -75,13 +75,12 @@
                         </ListBox>
                     </Expander>
                     <Expander Header="All Labels" IsExpanded="True">
-                        <ListBox BorderThickness="0">
-                            <ListBoxItem>WPF</ListBoxItem>
-                            <ListBoxItem>WCF</ListBoxItem>
-                            <ListBoxItem>WF</ListBoxItem>
-                            <ListBoxItem>LINQ</ListBoxItem>
-                            <ListBoxItem>CardSpace</ListBoxItem>
-                            <ListBoxItem>.NET 3.5</ListBoxItem>
+                        <ListBox Name="WikiDirectories" BorderThickness="0" ItemsSource="{Binding Source={StaticResource wiki}, Path=Directories}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Name}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
                         </ListBox>
                     </Expander>
                 </StackPanel>

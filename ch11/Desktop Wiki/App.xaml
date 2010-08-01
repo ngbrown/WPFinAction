@@ -1,8 +1,9 @@
 ﻿<Application x:Class="Desktop_Wiki.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Desktop_Wiki"
     StartupUri="WikiWindow.xaml">
     <Application.Resources>
-         
+        <local:Wiki x:Key="wiki" />
     </Application.Resources>
 </Application>
