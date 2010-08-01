@@ -12,9 +12,9 @@
         <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processes}}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel>
+                    <WrapPanel Name="wrapPanel1">
                         <TextBlock Text="{Binding Path=Id}" MinWidth="80" />
-                        <TextBlock Text="{Binding Path=StartTime, StringFormat=d}" MinWidth="80"/>
+                        <TextBlock Text="{Binding Path=PriorityClass}" MinWidth="80"/>
                         <TextBlock Text="{Binding Path=ProcessName, StringFormat=Process \{0\}}" MinWidth="180" />
                         <TextBlock Name="workingSet" MinWidth="60" TextAlignment="Right">
                             <TextBlock.Text>
@@ -22,6 +22,19 @@
                             </TextBlock.Text>
                         </TextBlock>
                     </WrapPanel>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=PriorityClass}" Value="High">
+                            <Setter TargetName="wrapPanel1" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="Salmon" Offset="0" />
+                                        <GradientStop Color="Salmon" Offset="0.4" />
+                                        <GradientStop Color="White" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
