@@ -66,6 +66,13 @@
                             </RichTextBox.CommandBindings>
                         </RichTextBox>
                     </DockPanel>
+                    <ListView Name="pageList" ItemsSource="{Binding ElementName=WikiDirectories, Path=SelectedItem.Pages}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Grid>
                 <StackPanel>
                     <Expander Header="Favorites" IsExpanded="True">
