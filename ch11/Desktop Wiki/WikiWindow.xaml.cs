@@ -48,5 +48,16 @@ namespace Desktop_Wiki
             args.ContinueRouting = false;
             args.Handled = true;
         }
+
+        private void activePage_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            RichTextBox wikiEditor = sender as RichTextBox;
+
+            WikiPage page = e.NewValue as WikiPage;
+            if (page != null)
+            {
+                wikiEditor.Document = page.Document;
+            }
+        }
     }
 }
