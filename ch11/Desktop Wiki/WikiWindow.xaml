@@ -5,11 +5,14 @@
     Title="Wiki In Action" Height="400" Width="500">
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static local:WikiWindow.About}" Executed="AboutExecuted" />
+        <CommandBinding Command="Save" Executed="SaveExecuted" />
     </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
             <Menu Height="22" Name="menu1" DockPanel.Dock="Top">
-                <MenuItem Header="_File" />
+                <MenuItem Header="_File">
+                    <MenuItem Header="Save" Command="Save" />
+                </MenuItem>
                 <MenuItem Header="_Edit">
                     <MenuItem Header="Cut" Command="Cut" />
                     <MenuItem Header="Copy" Command="Copy" />
@@ -25,7 +28,7 @@
             </Menu>
             <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button>New</Button>
+                    <Button Click="New_Click">New</Button>
                     <Button>Print</Button>
                     <Button>Spell Check</Button>
                     <Button>Options</Button>
@@ -82,7 +85,7 @@
                 </Grid>
                 <StackPanel>
                     <Expander Header="Directories" IsExpanded="True">
-                        <ListBox Name="WikiDirectories" BorderThickness="0" ItemsSource="{Binding Source={StaticResource wiki}, Path=Directories}">
+                        <ListBox Name="WikiDirectories" BorderThickness="0" ItemsSource="{Binding Source={StaticResource wiki}, Path=Directories}" SelectedItem="{Binding Source={StaticResource wiki}, Path=CurrentDirectory}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Path=Name}" />

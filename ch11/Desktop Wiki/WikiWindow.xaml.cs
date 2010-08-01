@@ -59,5 +59,17 @@ namespace Desktop_Wiki
                 wikiEditor.Document = page.Document;
             }
         }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            Wiki wiki = (Wiki)FindResource("wiki");
+            wiki.AddPage();
+        }
+
+        private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            Wiki wiki = (Wiki)FindResource("wiki");
+            wiki.Save();
+        }
     }
 }
