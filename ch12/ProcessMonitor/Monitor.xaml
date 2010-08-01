@@ -11,7 +11,7 @@
                         <TextBlock Text="{Binding Path=ProcessName}" MinWidth="180" />
                         <TextBlock>
                             <TextBlock.Text>
-                                <Binding Path="WorkingSet" StringFormat="N0" />
+                                <Binding Path="WorkingSet" StringFormat="{}{0:N0} bytes" />
                             </TextBlock.Text>
                         </TextBlock>
                     </WrapPanel>
