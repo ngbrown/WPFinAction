@@ -22,22 +22,6 @@ namespace ProcessMonitor
         public Monitor()
         {
             InitializeComponent();
-            BindProcessesToListView();
-        }
-
-        private void BindProcessesToListView()
-        {
-            ObjectDataProvider provider = new ObjectDataProvider();
-            provider.ObjectType = typeof(Process);
-            provider.MethodName = "GetProcesses";
-
-            Binding binding = new Binding();
-            binding.Source = provider;
-            binding.Mode = BindingMode.OneWay;
-
-            PresentationTraceSources.SetTraceLevel(binding, PresentationTraceLevel.High);
-
-            listView1.SetBinding(ListView.ItemsSourceProperty, binding);
         }
     }
 }

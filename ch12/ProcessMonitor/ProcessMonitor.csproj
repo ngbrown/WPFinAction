@@ -72,6 +72,7 @@
     <Compile Include="Monitor.xaml.cs">
       <DependentUpon>Monitor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NumberToFormattedTextValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
