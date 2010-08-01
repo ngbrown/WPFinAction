@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ProcessMonitor.Monitor"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Monitor" Height="300" Width="300">
+    Title="Monitor" Height="300" Width="400">
     <Grid>
         <ListView Name="listView1">
             <ListView.ItemTemplate>
@@ -11,7 +11,7 @@
                         <TextBlock Text="{Binding Path=ProcessName}" MinWidth="180" />
                         <TextBlock>
                             <TextBlock.Text>
-                                <Binding Path="WorkingSet" />
+                                <Binding Path="WorkingSet" StringFormat="N0" />
                             </TextBlock.Text>
                         </TextBlock>
                     </WrapPanel>
