@@ -83,6 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="WikiCommands.cs" />
+    <Compile Include="WikiPage.cs" />
     <Compile Include="WikiWindow.xaml.cs">
       <DependentUpon>WikiWindow.xaml</DependentUpon>
     </Compile>
