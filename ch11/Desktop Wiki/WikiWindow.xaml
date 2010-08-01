@@ -25,7 +25,7 @@
             </Menu>
             <ToolBarTray Height="26" Name="toolBarTray1" DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button>Next</Button>
+                    <Button>New</Button>
                     <Button>Print</Button>
                     <Button>Spell Check</Button>
                     <Button>Options</Button>
@@ -81,13 +81,7 @@
                     </ListView>
                 </Grid>
                 <StackPanel>
-                    <Expander Header="Favorites" IsExpanded="True">
-                        <ListBox BorderThickness="0">
-                            <ListBoxItem>WPF</ListBoxItem>
-                            <ListBoxItem>.NET 3.5</ListBoxItem>
-                        </ListBox>
-                    </Expander>
-                    <Expander Header="All Labels" IsExpanded="True">
+                    <Expander Header="Directories" IsExpanded="True">
                         <ListBox Name="WikiDirectories" BorderThickness="0" ItemsSource="{Binding Source={StaticResource wiki}, Path=Directories}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>

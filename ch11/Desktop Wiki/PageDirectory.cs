@@ -12,7 +12,7 @@ namespace Desktop_Wiki
         public PageDirectory() { }
         public PageDirectory(string name)
         {
-            name = name;
+            Name = name;
             pages = new ObservableCollection<WikiPage>();
         }
 
