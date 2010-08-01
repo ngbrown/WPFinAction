@@ -7,6 +7,7 @@
     <Window.Resources>
         <ObjectDataProvider x:Key="processes" MethodName="GetProcesses" ObjectType="{x:Type diag:Process}" />
         <local:NumberToFormattedTextValueConverter x:Key="numberToText" />
+        <local:IsLargeValueConverter x:Key="isLarge" />
     </Window.Resources>
     <Grid>
         <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processes}}">
@@ -23,7 +24,7 @@
                         </TextBlock>
                     </WrapPanel>
                     <DataTemplate.Triggers>
-                        <DataTrigger Binding="{Binding Path=PriorityClass}" Value="High">
+                        <DataTrigger Binding="{Binding Path=WorkingSet64, Converter={StaticResource isLarge}, ConverterParameter=20000000}" Value="true">
                             <Setter TargetName="wrapPanel1" Property="Background">
                                 <Setter.Value>
                                     <LinearGradientBrush>
