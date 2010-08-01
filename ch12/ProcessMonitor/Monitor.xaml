@@ -8,7 +8,7 @@
     <Window.Resources>
         <ObjectDataProvider x:Key="processes" MethodName="GetProcesses" ObjectType="{x:Type diag:Process}" />
         
-        <CollectionViewSource x:Key="processesView" Source="{StaticResource processes}" >
+        <CollectionViewSource x:Key="processesView" Source="{StaticResource processes}" Filter="CollectionViewSource_Filter" >
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription PropertyName="ProcessName" />
             </CollectionViewSource.SortDescriptions>

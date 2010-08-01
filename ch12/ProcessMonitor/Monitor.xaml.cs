@@ -39,5 +39,11 @@ namespace ProcessMonitor
             src.SortDescriptions.Clear();
             src.SortDescriptions.Add(sortDesc);
         }
+
+        private void CollectionViewSource_Filter(object sender, FilterEventArgs e)
+        {
+            Process p = e.Item as Process;
+            e.Accepted = (p.BasePriority >= 8);
+        }
     }
 }
