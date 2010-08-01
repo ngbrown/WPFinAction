@@ -16,35 +16,45 @@
         <local:NumberToFormattedTextValueConverter x:Key="numberToText" />
         <local:IsLargeValueConverter x:Key="isLarge" />
     </Window.Resources>
-    <Grid>
-        <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processesView}}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel Name="wrapPanel1">
-                        <TextBlock Text="{Binding Path=Id}" MinWidth="80" />
-                        <TextBlock Text="{Binding Path=PriorityClass}" MinWidth="80"/>
-                        <TextBlock Text="{Binding Path=ProcessName, StringFormat=Process \{0\}}" MinWidth="180" />
-                        <TextBlock Name="workingSet" MinWidth="60" TextAlignment="Right">
-                            <TextBlock.Text>
-                                <Binding Path="WorkingSet64" Converter="{StaticResource numberToText}" ConverterParameter="BINARYSI" />
-                            </TextBlock.Text>
-                        </TextBlock>
-                    </WrapPanel>
-                    <DataTemplate.Triggers>
-                        <DataTrigger Binding="{Binding Path=WorkingSet64, Converter={StaticResource isLarge}, ConverterParameter=20000000}" Value="true">
-                            <Setter TargetName="wrapPanel1" Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush>
-                                        <GradientStop Color="Salmon" Offset="0" />
-                                        <GradientStop Color="Salmon" Offset="0.4" />
-                                        <GradientStop Color="White" Offset="1" />
-                                    </LinearGradientBrush>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                    </DataTemplate.Triggers>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Label>Sort Order:</Label>
+            <ComboBox Width="100" x:Name="sortOrderCombo" SelectedIndex="0" SelectionChanged="sortOrderCombo_SelectionChanged">
+                <ComboBoxItem>ProcessName</ComboBoxItem>
+                <ComboBoxItem>Id</ComboBoxItem>
+                <ComboBoxItem>WorkingSet64</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <Grid>
+            <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processesView}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Name="wrapPanel1">
+                            <TextBlock Text="{Binding Path=Id}" MinWidth="80" />
+                            <TextBlock Text="{Binding Path=PriorityClass}" MinWidth="80"/>
+                            <TextBlock Text="{Binding Path=ProcessName, StringFormat=Process \{0\}}" MinWidth="180" />
+                            <TextBlock Name="workingSet" MinWidth="60" TextAlignment="Right">
+                                <TextBlock.Text>
+                                    <Binding Path="WorkingSet64" Converter="{StaticResource numberToText}" ConverterParameter="BINARYSI" />
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </WrapPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=WorkingSet64, Converter={StaticResource isLarge}, ConverterParameter=20000000}" Value="true">
+                                <Setter TargetName="wrapPanel1" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="Salmon" Offset="0" />
+                                            <GradientStop Color="Salmon" Offset="0.4" />
+                                            <GradientStop Color="White" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </DockPanel>
 </Window>
