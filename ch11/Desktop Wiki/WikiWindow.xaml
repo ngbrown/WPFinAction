@@ -58,13 +58,19 @@
                                 <Button Command="EditingCommands.ToggleUnderline">Underline</Button>
                             </ToolBar>
                         </ToolBarTray>
-                        <RichTextBox>
-                            <RichTextBox.CommandBindings>
-                                <CommandBinding Command="{x:Static local:WikiCommands.CreateLinkFromSelection}"
-                                                Executed="CreateLinkFromSelectionExecuted"
-                                                CanExecute="CreateLinkFromSelectionCanExecute" />
-                            </RichTextBox.CommandBindings>
-                        </RichTextBox>
+                        <DockPanel LastChildFill="True">
+                            <DockPanel.DataContext>
+                                <Binding ElementName="pageList" Path="SelectedItem" />
+                            </DockPanel.DataContext>
+                            <TextBox DockPanel.Dock="Top" Name="wikiTitle" HorizontalAlignment="Stretch" Text="{Binding Path=Name}" />
+                            <RichTextBox>
+                                <RichTextBox.CommandBindings>
+                                    <CommandBinding Command="{x:Static local:WikiCommands.CreateLinkFromSelection}"
+                                                    Executed="CreateLinkFromSelectionExecuted"
+                                                    CanExecute="CreateLinkFromSelectionCanExecute" />
+                                </RichTextBox.CommandBindings>
+                            </RichTextBox>
+                        </DockPanel>
                     </DockPanel>
                     <ListView Name="pageList" ItemsSource="{Binding ElementName=WikiDirectories, Path=SelectedItem.Pages}">
                         <ListView.ItemTemplate>
