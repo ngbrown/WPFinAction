@@ -3,14 +3,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ProcessMonitor"
     xmlns:diag="clr-namespace:System.Diagnostics;assembly=System"
+    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     Title="Monitor" Height="300" Width="450">
     <Window.Resources>
         <ObjectDataProvider x:Key="processes" MethodName="GetProcesses" ObjectType="{x:Type diag:Process}" />
+        
+        <CollectionViewSource x:Key="processesView" Source="{StaticResource processes}" >
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="ProcessName" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
         <local:NumberToFormattedTextValueConverter x:Key="numberToText" />
         <local:IsLargeValueConverter x:Key="isLarge" />
     </Window.Resources>
     <Grid>
-        <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processes}}">
+        <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processesView}}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Name="wrapPanel1">
