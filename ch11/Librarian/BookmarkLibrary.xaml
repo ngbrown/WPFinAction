@@ -26,6 +26,13 @@
             </DockPanel>
         </Grid>
         
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" FlowDirection="RightToLeft">
+            <Button MinWidth="60" Content="Close" Click="Close_Click" />
+            <Button MinWidth="60" Content="Save" Click="Save_Click" />
+            <Button MinWidth="60" Content="Delete" Margin="30,0,0,0" Click="Delete_Click" />
+            <Button MinWidth="60" Content="Add" Click="Add_Click" />
+        </StackPanel>
+        
         <ListView Name="bookmarks" ItemsSource="{Binding Source={StaticResource library}, Path=Bookmarks}">
             <ListView.View>
                 <GridView>
