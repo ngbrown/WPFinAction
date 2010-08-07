@@ -2,6 +2,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="BookmarkLibrary" Height="300" Width="300">
+    <Window.Resources>
+        <ControlTemplate x:Key="customErrorTemplate">
+            <Border BorderThickness="1" BorderBrush="Blue">
+                <AdornedElementPlaceholder Name="controlWithError" />
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
     <DockPanel LastChildFill="True">
         <Grid DockPanel.Dock="Bottom" DataContext="{Binding ElementName=bookmarks, Path=SelectedItem}">
             <Grid.ColumnDefinitions>
@@ -14,7 +21,7 @@
             </Grid.RowDefinitions>
             <DockPanel Grid.Column="0" Grid.Row="0">
                 <Label MinWidth="50" DockPanel.Dock="Left" Content="Title:" />
-                <TextBox>
+                <TextBox Validation.ErrorTemplate="{StaticResource customErrorTemplate}">
                     <Binding Path="Title">
                         <Binding.ValidationRules>
                             <ExceptionValidationRule />
