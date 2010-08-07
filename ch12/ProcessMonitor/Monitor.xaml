@@ -24,6 +24,13 @@
                 <ComboBoxItem>Id</ComboBoxItem>
                 <ComboBoxItem>WorkingSet64</ComboBoxItem>
             </ComboBox>
+            <Label>Priority:</Label>
+            <ComboBox Width="75" x:Name="priorityFilterCombo" SelectedIndex="0" SelectionChanged="priorityFilterCombo_SelectionChanged">
+                <ComboBoxItem>All</ComboBoxItem>
+                <ComboBoxItem>High</ComboBoxItem>
+                <ComboBoxItem>Normal</ComboBoxItem>
+                <ComboBoxItem>Low</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         <Grid>
             <ListView Name="listView1" ItemsSource="{Binding Source={StaticResource processesView}}">

@@ -43,7 +43,29 @@ namespace ProcessMonitor
         private void CollectionViewSource_Filter(object sender, FilterEventArgs e)
         {
             Process p = e.Item as Process;
-            e.Accepted = (p.BasePriority >= 8);
+
+            int mode = (priorityFilterCombo != null) ? priorityFilterCombo.SelectedIndex : 0;
+
+            switch (mode)
+            {
+                case 1:
+                    e.Accepted = (p.BasePriority > 12);
+                    break;
+                case 2:
+                    e.Accepted = (p.BasePriority >= 8 && p.BasePriority <= 12);
+                    break;
+                case 3:
+                    e.Accepted = (p.BasePriority < 8);
+                    break;
+                default:
+                    e.Accepted = true;
+                    break;
+            }
+        }
+
+        private void priorityFilterCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetNewSortOrder();
         }
     }
 }
