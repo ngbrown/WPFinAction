@@ -4,9 +4,14 @@
     Title="BookmarkLibrary" Height="300" Width="300">
     <Window.Resources>
         <ControlTemplate x:Key="customErrorTemplate">
-            <Border BorderThickness="1" BorderBrush="Blue">
-                <AdornedElementPlaceholder Name="controlWithError" />
-            </Border>
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Right" FontSize="20" Foreground="Red"
+                           ToolTip="{Binding ElementName=controlWithError,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                           Margin="0,1,0,0">*</TextBlock>
+                <Border BorderThickness="1" BorderBrush="DarkRed">
+                    <AdornedElementPlaceholder Name="controlWithError" />
+                </Border>
+            </DockPanel>
         </ControlTemplate>
     </Window.Resources>
     <DockPanel LastChildFill="True">
