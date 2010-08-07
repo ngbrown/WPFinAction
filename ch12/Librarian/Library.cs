@@ -39,6 +39,7 @@ namespace Librarian
             bookmarks.Columns.Add("Uri", typeof(String));
             bookmarks.Columns.Add("Category", typeof(string));
             bookmarks.Columns.Add("LastMod", typeof(DateTime));
+            bookmarks.Constraints.Add("UniqueTitle", bookmarks.Columns[1], false);
 
             DataTable identity = new DataTable("Ident");
             identity.Columns.Add("Name", typeof(string));
