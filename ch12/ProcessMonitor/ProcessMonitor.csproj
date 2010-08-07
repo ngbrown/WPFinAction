@@ -74,6 +74,7 @@
       <DependentUpon>Monitor.xaml</DependentUpon>
     </Compile>
     <Compile Include="NumberToFormattedTextValueConverter.cs" />
+    <Compile Include="ProcessInterestSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -125,10 +125,14 @@
                         </DataTrigger>
                     </DataTemplate.Triggers>
                 </DataTemplate>
+                <local:ProcessInterestSelector x:Key="ProcessTemplateSelector"
+                                               NormalTemplate="{StaticResource NormalTemplate}"
+                                               InterestingTemplate="{StaticResource CardViewTemplate}"
+                                               Threshold="20000000" />
             </Grid.Resources>
             <ListView Name="listView1" 
                       ItemsSource="{Binding Source={StaticResource processesView}}"
-                      ItemTemplate="{StaticResource CardViewTemplate}"
+                      ItemTemplateSelector="{StaticResource ProcessTemplateSelector}"
                       HorizontalContentAlignment="Stretch" />
         </Grid>
     </DockPanel>
