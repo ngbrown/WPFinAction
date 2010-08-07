@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.Windows.Markup;
 
 namespace XamlBrowser
 {
@@ -22,6 +24,16 @@ namespace XamlBrowser
         public Window1()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(XamlWriter.Save(this));
+
+            XmlDataProvider provider = (XmlDataProvider)FindResource("xaml");
+            provider.Document = doc;
+            provider.Refresh();
         }
     }
 }
