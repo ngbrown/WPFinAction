@@ -1,0 +1,46 @@
+﻿<Window x:Class="Librarian.BookmarkLibrary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="BookmarkLibrary" Height="300" Width="300">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Bottom" DataContext="{Binding ElementName=bookmarks, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Column="0" Grid.Row="0">
+                <Label MinWidth="50" DockPanel.Dock="Left" Content="Title:" />
+                <TextBox Text="{Binding Path=Title}" />
+            </DockPanel>
+            <DockPanel Grid.Column="1" Grid.Row="0">
+                <Label MinWidth="50" DockPanel.Dock="Left" Content="Category:" />
+                <TextBox Margin="0,0,10,0" Text="{Binding Path=Category}" />
+            </DockPanel>
+            <DockPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <Label MinWidth="50" Content="URL:" />
+                <TextBox Margin="0,0,10,0" Text="{Binding Path=Uri}" />
+            </DockPanel>
+        </Grid>
+        
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" FlowDirection="RightToLeft">
+            <Button MinWidth="60" Content="Close" Click="Close_Click" />
+            <Button MinWidth="60" Content="Save" Click="Save_Click" />
+            <Button MinWidth="60" Content="Delete" Margin="30,0,0,0" Click="Delete_Click" />
+            <Button MinWidth="60" Content="Add" Click="Add_Click" />
+        </StackPanel>
+        
+        <ListView Name="bookmarks" ItemsSource="{Binding Source={StaticResource library}, Path=Bookmarks}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Title}" />
+                    <GridViewColumn Header="URL" DisplayMemberBinding="{Binding Path=Uri}" />
+                    <GridViewColumn Header="Last Modified" DisplayMemberBinding="{Binding Path=LastMod}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
