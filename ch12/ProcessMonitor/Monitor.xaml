@@ -98,7 +98,8 @@
             </Grid.Resources>
             <ListView Name="listView1" 
                       ItemsSource="{Binding Source={StaticResource processesView}}"
-                      ItemTemplate="{StaticResource CardViewTemplate}" />
+                      ItemTemplate="{StaticResource CardViewTemplate}"
+                      HorizontalContentAlignment="Stretch" />
         </Grid>
     </DockPanel>
 </Window>
