@@ -60,7 +60,7 @@
                     </DataTemplate.Triggers>
                 </DataTemplate>
                 <DataTemplate x:Key="CardViewTemplate">
-                    <GroupBox Header="{Binding Path=ProcessName}" MinWidth="350" BorderThickness="2">
+                    <GroupBox Header="{Binding Path=ProcessName}" BorderThickness="2">
                         <StackPanel Name="stackPanel1">
                             <WrapPanel Orientation="Vertical" Name="wrapPanel1">
                                 <WrapPanel Orientation="Horizontal">
@@ -76,8 +76,38 @@
                                     <TextBlock MinWidth="140" Text="{Binding Path=ProcessName}" />
                                 </WrapPanel>
                                 <WrapPanel Orientation="Horizontal">
-                                    <TextBlock MinWidth="80" Text="Working Set:" xml:space="preserve" />
+                                    <TextBlock MinWidth="80" Text="Working Set: " xml:space="preserve" />
                                     <TextBlock Name="workingSet" Text="{Binding Path=WorkingSet64,Converter={StaticResource numberToText}}" />
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock MinWidth="80" Text="VM Size: " xml:space="preserve" />
+                                        <TextBlock MinWidth="80" Text="{Binding Path=VirtualMemorySize64,Converter={StaticResource numberToText}}" />
+                                    </WrapPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock MinWidth="80" Text="PrivMemSize: " xml:space="preserve" />
+                                        <TextBlock MinWidth="80" Text="{Binding Path=PrivateMemorySize64,Converter={StaticResource numberToText}}" />
+                                    </WrapPanel>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock MinWidth="80" Text="PeakWork: " xml:space="preserve" />
+                                        <TextBlock MinWidth="80" Text="{Binding Path=PeakWorkingSet64,Converter={StaticResource numberToText}}" />
+                                    </WrapPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock MinWidth="80" Text="PeakPaged: " xml:space="preserve" />
+                                        <TextBlock MinWidth="80" Text="{Binding Path=PeakPagedMemorySize64,Converter={StaticResource numberToText}}" />
+                                    </WrapPanel>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock MinWidth="80" Text="PagedSys: " xml:space="preserve" />
+                                        <TextBlock MinWidth="80" Text="{Binding Path=PagedSystemMemorySize64,Converter={StaticResource numberToText}}" />
+                                    </WrapPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock MinWidth="80" Text="PeakVirtual: " xml:space="preserve" />
+                                        <TextBlock MinWidth="80" Text="{Binding Path=PagedSystemMemorySize64,Converter={StaticResource numberToText}}" />
+                                    </WrapPanel>
                                 </WrapPanel>
                             </WrapPanel>
                         </StackPanel>
