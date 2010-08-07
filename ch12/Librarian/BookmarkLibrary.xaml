@@ -14,7 +14,13 @@
             </Grid.RowDefinitions>
             <DockPanel Grid.Column="0" Grid.Row="0">
                 <Label MinWidth="50" DockPanel.Dock="Left" Content="Title:" />
-                <TextBox Text="{Binding Path=Title}" />
+                <TextBox>
+                    <Binding Path="Title">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
             </DockPanel>
             <DockPanel Grid.Column="1" Grid.Row="0">
                 <Label MinWidth="50" DockPanel.Dock="Left" Content="Category:" />
