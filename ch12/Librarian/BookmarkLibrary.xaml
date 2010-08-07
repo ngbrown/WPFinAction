@@ -49,6 +49,7 @@
                         <Binding Path="Uri">
                             <Binding.ValidationRules>
                                 <local:UriRule />
+                                <ExceptionValidationRule />
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
