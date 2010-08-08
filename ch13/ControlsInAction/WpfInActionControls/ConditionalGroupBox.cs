@@ -34,20 +34,20 @@ namespace WpfInActionControls
     /// to this project and Rebuild to avoid compilation errors:
     ///
     ///     Right click on the target project in the Solution Explorer and
-    ///     "Add Reference"->"Projects"->[Select this project]
+    ///     "Add Reference"->"Projects"->[Browse to and select this project]
     ///
     ///
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:CustomControl1/>
+    ///     <MyNamespace:ConditionalGroupBox/>
     ///
     /// </summary>
-    public class CustomControl1 : Control
+    public class ConditionalGroupBox : Control
     {
-        static CustomControl1()
+        static ConditionalGroupBox()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomControl1), new FrameworkPropertyMetadata(typeof(CustomControl1)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ConditionalGroupBox), new FrameworkPropertyMetadata(typeof(ConditionalGroupBox)));
         }
     }
 }
