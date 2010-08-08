@@ -12,7 +12,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Ellipse Fill="Green" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="120" Width="40" />
-        <Polygon Fill="Red" Canvas.Left="100" Canvas.Top="30" Points="20 0 40 40 0 40" />
+        <Polygon Fill="Red" Canvas.Left="100" Canvas.Top="30" Points="20 0 40 40 0 40" MouseDown="Polygon_MouseDown" />
         <Line Stroke="Purple" X1="40" X2="0" Y1="0" Y2="120" Canvas.Top="40" Canvas.Left="151" />
         <Polyline Stroke="Brown" StrokeThickness="4" StrokeDashArray="1 1" Canvas.Left="119" Canvas.Top="170">
             <Polyline.Points>

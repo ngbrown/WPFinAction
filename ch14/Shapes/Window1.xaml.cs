@@ -23,5 +23,10 @@ namespace Shapes
         {
             InitializeComponent();
         }
+
+        private void Polygon_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked on the triangle.  Please don't do that again.");
+        }
     }
 }
