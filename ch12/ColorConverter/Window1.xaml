@@ -32,8 +32,12 @@
                         </SolidColorBrush.Color>
                     </SolidColorBrush>
                 </Grid.Background>
+                <Label Name="label4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label.Content>
+                        <Binding ElementName="colorBlock" Path="Background.Color" />
+                    </Label.Content>
+                </Label>
             </Grid>
-            
         </DockPanel>
     </Grid>
 </Window>
