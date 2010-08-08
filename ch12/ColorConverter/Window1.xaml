@@ -36,6 +36,18 @@
                     <Label.Content>
                         <Binding ElementName="colorBlock" Path="Background.Color" />
                     </Label.Content>
+                    <Label.Foreground>
+                        <SolidColorBrush>
+                            <SolidColorBrush.Color>
+                                <MultiBinding Converter="{StaticResource colorConverter}"
+                                              ConverterParameter="inverse">
+                                    <Binding ElementName="redSlider" Path="Value" />
+                                    <Binding ElementName="greenSlider" Path="Value" />
+                                    <Binding ElementName="blueSlider" Path="Value" />
+                                </MultiBinding>
+                            </SolidColorBrush.Color>
+                        </SolidColorBrush>
+                    </Label.Foreground>
                 </Label>
             </Grid>
         </DockPanel>
