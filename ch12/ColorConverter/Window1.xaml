@@ -34,7 +34,15 @@
                 </Grid.Background>
                 <Label Name="label4" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label.Content>
-                        <Binding ElementName="colorBlock" Path="Background.Color" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="Red={0}, Green={1}, Blue={2}">
+                                    <Binding ElementName="redSlider" Path="Value" />
+                                    <Binding ElementName="greenSlider" Path="Value" />
+                                    <Binding ElementName="blueSlider" Path="Value" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
                     </Label.Content>
                     <Label.Foreground>
                         <SolidColorBrush>
