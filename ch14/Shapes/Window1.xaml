@@ -1,8 +1,8 @@
 ﻿<Window x:Class="Shapes.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Shapes" Height="300" Width="300">
-    <Canvas>
+    Title="Shapes" Height="200" Width="350">
+    <StackPanel Orientation="Horizontal">
         <Rectangle Canvas.Left="40" Canvas.Top="40" Width="40" Height="40" RadiusX="10" RadiusY="10">
             <Rectangle.Fill>
                 <LinearGradientBrush>
@@ -37,5 +37,5 @@
                 </PathGeometry>
             </Path.Data>
         </Path>
-    </Canvas>
+    </StackPanel>
 </Window>
