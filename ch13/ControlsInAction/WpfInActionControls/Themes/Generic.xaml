@@ -9,6 +9,13 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <CheckBox IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsContentEnabled}"
+                                          Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Header}" />
+                            </GroupBox.Header>
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </GroupBox>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
