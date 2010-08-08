@@ -9,6 +9,17 @@
         <TextBox Height="23" Margin="12,6,12,0" Name="textBox2" VerticalAlignment="Top">http://www.manning.com/</TextBox>
         <local:LinkLabel Margin="12,6,12,0" Text="{Binding ElementName=textBox1, Path=Text}" Uri="{Binding ElementName=textBox2, Path=Text}" Height="22" VerticalAlignment="Top" />
         <remote:ConditionalGroupBox Header="Transmogrify" Margin="20,20,20,20">
+            <remote:ConditionalGroupBox.Template>
+                <ControlTemplate TargetType="remote:ConditionalGroupBox">
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <ToggleButton IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsContentEnabled}"
+                                          Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Header}" />
+                        </GroupBox.Header>
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </GroupBox>
+                </ControlTemplate>
+            </remote:ConditionalGroupBox.Template>
             <Grid>
                 <Label Height="28" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left">Label</Label>
                 <Button Height="23" Margin="56,13.48,96,0" Name="button1" VerticalAlignment="Top">Button</Button>
