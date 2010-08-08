@@ -43,11 +43,34 @@ namespace WpfInActionControls
     ///     <MyNamespace:ConditionalGroupBox/>
     ///
     /// </summary>
-    public class ConditionalGroupBox : Control
+    public class ConditionalGroupBox : HeaderedContentControl
     {
         static ConditionalGroupBox()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ConditionalGroupBox), new FrameworkPropertyMetadata(typeof(ConditionalGroupBox)));
+        }
+
+        public static readonly DependencyProperty IsContentEnabledProperty =
+            DependencyProperty.Register(
+            "IsContentEnabled",
+            typeof(bool),
+            typeof(ConditionalGroupBox),
+            new PropertyMetadata(true, new PropertyChangedCallback(OnIsContentEnabledChanged)));
+
+        public bool IsContentEnabled
+        {
+            get { return (bool)GetValue(IsContentEnabledProperty); }
+            set { SetValue(IsContentEnabledProperty, value); }
+        }
+
+        private static void OnIsContentEnabledChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            bool enabled = (bool)e.NewValue;
+            ConditionalGroupBox groupBox = (ConditionalGroupBox)sender;
+
+            UIElement content = groupBox.Content as UIElement;
+            if (content != null)
+                content.IsEnabled = enabled;
         }
     }
 }
