@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Shapes" Height="200" Width="350">
     <StackPanel Orientation="Horizontal">
-        <Rectangle Canvas.Left="40" Canvas.Top="40" Width="40" Height="40" RadiusX="10" RadiusY="10">
+        <Rectangle Canvas.Left="40" Canvas.Top="40" Width="40" RadiusX="10" RadiusY="10">
             <Rectangle.Fill>
                 <LinearGradientBrush>
                     <GradientStop Offset="0" Color="Blue" />
@@ -11,7 +11,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Ellipse Fill="Green" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="120" Width="40" Height="40" />
+        <Ellipse Fill="Green" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="120" Width="40" />
         <Polygon Fill="Red" Canvas.Left="100" Canvas.Top="30" Points="20 0 40 40 0 40" />
         <Line Stroke="Purple" X1="40" X2="0" Y1="0" Y2="120" Canvas.Top="40" Canvas.Left="151" />
         <Polyline Stroke="Brown" StrokeThickness="4" StrokeDashArray="1 1" Canvas.Left="119" Canvas.Top="170">
