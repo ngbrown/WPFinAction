@@ -34,6 +34,12 @@ namespace GraphingWithShapes
             valueList.SetBinding(ListBox.ItemsSourceProperty, binding);
 
             graphCtrl.SetData(dataPoints);
+
+            // set sample data
+            dataPoints.Add(new NameValuePair("First", 10));
+            dataPoints.Add(new NameValuePair("Second", 20));
+            dataPoints.Add(new NameValuePair("Third", 5));
+            dataPoints.Add(new NameValuePair("Fourth", 15));
         }
 
         private void addValueBtn_Click(object sender, RoutedEventArgs e)
