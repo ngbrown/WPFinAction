@@ -111,19 +111,24 @@ namespace GraphingWithShapes
             {
                 Point pt = e.GetPosition(this);
 
-                HitTestResult result = VisualTreeHelper.HitTest(this, pt);
-                if (result != null)
+                VisualTreeHelper.HitTest(this, null,
+                    new HitTestResultCallback(OnVisualHit),
+                    new PointHitTestParameters(pt));
+            }
+        }
+
+        protected HitTestResultBehavior OnVisualHit(HitTestResult result)
+        {
+            foreach (NameValuePair nvp in dataPoints)
+            {
+                if (nvp.Tag == result.VisualHit)
                 {
-                    foreach (NameValuePair nvp in dataPoints)
-                    {
-                        if (nvp.Tag == result.VisualHit)
-                        {
-                            MessageBox.Show("Name: " + nvp.Name + ", Value: " + nvp.Value.ToString());
-                            break;
-                        }
-                    }
+                    MessageBox.Show("Name: " + nvp.Name + ", Value: " + nvp.Value.ToString());
+                    break;
                 }
             }
+
+            return HitTestResultBehavior.Continue;
         }
     }
 }
