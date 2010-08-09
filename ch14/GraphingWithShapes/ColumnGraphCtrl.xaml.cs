@@ -53,10 +53,25 @@ namespace GraphingWithShapes
                     rect.StrokeThickness = 1;
                     main.Children.Add(rect);
                     nvp.Tag = rect;
+
+                    rect.MouseDown += new MouseButtonEventHandler(rect_MouseDown);
+                    rect.Tag = nvp;
                 }
             }
 
             CalculatePositionsAndSizes();
+        }
+
+        void rect_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                Rectangle rect = sender as Rectangle;
+                NameValuePair nvp = rect.Tag as NameValuePair;
+
+                if (nvp != null)
+                    MessageBox.Show("Name: " + nvp.Name + ", Value: " + nvp.Value.ToString());
+            }
         }
 
         public void CalculatePositionsAndSizes()
