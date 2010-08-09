@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Globalization;
 
 namespace GraphingWithShapes
 {
@@ -83,6 +84,17 @@ namespace GraphingWithShapes
                         height = (nvp.Value * unitHeight);
                         rect = new Rect(left, bottom - height, barWidth, height);
                         drawingContext.DrawRectangle(fillBrush, outlinePen, rect);
+
+                        FormattedText ft = new FormattedText(
+                            nvp.Name,
+                            CultureInfo.CurrentCulture,
+                            FlowDirection.LeftToRight,
+                            new Typeface("Verdana"),
+                            12,
+                            fillBrush);
+
+                        ft.TextAlignment = TextAlignment.Center;
+                        drawingContext.DrawText(ft, new Point((left + rect.Width / 2), bottom + 5));
                     }
 
                     visuals.Add(visual);
