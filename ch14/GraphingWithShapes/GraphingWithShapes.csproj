@@ -67,6 +67,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ColumnGraphRenderCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GraphHolder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,6 +91,9 @@
   <ItemGroup>
     <Compile Include="ColumnGraphCtrl.xaml.cs">
       <DependentUpon>ColumnGraphCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnGraphRenderCtrl.xaml.cs">
+      <DependentUpon>ColumnGraphRenderCtrl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GraphHolder.xaml.cs">
       <DependentUpon>GraphHolder.xaml</DependentUpon>
