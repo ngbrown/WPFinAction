@@ -36,6 +36,6 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
-        <local:ColumnGraphRenderCtrl x:Name="graphCtrl" Grid.Column="1" Height="Auto" Width="Auto" />
+        <local:ColumnGraphVisualCtrl x:Name="graphCtrl" Grid.Column="1" Height="Auto" Width="Auto" />
     </Grid>
 </UserControl>

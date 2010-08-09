@@ -95,6 +95,7 @@
     <Compile Include="ColumnGraphRenderCtrl.xaml.cs">
       <DependentUpon>ColumnGraphRenderCtrl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColumnGraphVisualCtrl.cs" />
     <Compile Include="GraphHolder.xaml.cs">
       <DependentUpon>GraphHolder.xaml</DependentUpon>
     </Compile>
