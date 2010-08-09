@@ -104,5 +104,26 @@ namespace GraphingWithShapes
 
             return value;
         }
+
+        protected override void OnMouseDown(MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                Point pt = e.GetPosition(this);
+
+                HitTestResult result = VisualTreeHelper.HitTest(this, pt);
+                if (result != null)
+                {
+                    foreach (NameValuePair nvp in dataPoints)
+                    {
+                        if (nvp.Tag == result.VisualHit)
+                        {
+                            MessageBox.Show("Name: " + nvp.Name + ", Value: " + nvp.Value.ToString());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
