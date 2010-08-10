@@ -5,7 +5,11 @@
     <Grid>
         <Viewport3D x:Name="main" ClipToBounds="True">
             <Viewport3D.Camera>
-                <OrthographicCamera Position="0,0,3" LookDirection="-0.5,-0.5,-1" Width="10" />
+                <OrthographicCamera Position="0,0,3" LookDirection="-0.5,-0.5,-1" Width="10">
+                    <OrthographicCamera.Transform>
+                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="4" />
+                    </OrthographicCamera.Transform>
+                </OrthographicCamera>
             </Viewport3D.Camera>
             <Viewport3D.Children>
                 <ModelVisual3D>
