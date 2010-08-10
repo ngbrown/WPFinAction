@@ -5,7 +5,7 @@
     <Grid>
         <Viewport3D>
             <Viewport3D.Camera>
-                <OrthographicCamera Position="0,0,3" LookDirection="0,0,-1" Width="5" />
+                <OrthographicCamera Position="3,3,3" LookDirection="-1,-1,-1" Width="5" />
             </Viewport3D.Camera>
             <Viewport3D.Children>
                 <ModelVisual3D>
