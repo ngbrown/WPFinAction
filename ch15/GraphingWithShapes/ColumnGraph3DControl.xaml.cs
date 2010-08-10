@@ -79,6 +79,14 @@ namespace GraphingWithShapes
                     model.Content = column;
                     main.Children.Add(model);
 
+                    AxisAngleRotation3D angleRot = new AxisAngleRotation3D(new Vector3D(0, 1, 0), 0);
+                    RotateTransform3D rot = new RotateTransform3D(angleRot, new Point3D(-spaceToUseX + (spaceToUseX / 2), 0, -(barWidth / 2)));
+
+                    Binding rotBind = new Binding("Value");
+                    rotBind.Source = rotateSlider;
+                    BindingOperations.SetBinding(angleRot, AxisAngleRotation3D.AngleProperty, rotBind);
+                    model.Transform = rot;
+
                     left += barWidth;
                     nIndex++;
                 }

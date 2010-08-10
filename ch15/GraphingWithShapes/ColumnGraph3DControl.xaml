@@ -7,6 +7,10 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
         <Viewport3D x:Name="main" ClipToBounds="True">
             <Viewport3D.Camera>
                 <OrthographicCamera Position="0,0,3" LookDirection="-0.5,-0.5,-1" Width="10">
@@ -24,5 +28,6 @@
             </Viewport3D.Children>
         </Viewport3D>
         <Slider x:Name="distanceSlider" Grid.Column="1" Orientation="Vertical" Minimum="0" Maximum="10" Value="4" />
+        <Slider x:Name="rotateSlider" Grid.Row="1" Orientation="Horizontal" Minimum="0" Maximum="360" Value="0" />
     </Grid>
 </UserControl>
