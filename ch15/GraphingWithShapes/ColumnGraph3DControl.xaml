@@ -3,11 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Height="300" Width="300">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
         <Viewport3D x:Name="main" ClipToBounds="True">
             <Viewport3D.Camera>
                 <OrthographicCamera Position="0,0,3" LookDirection="-0.5,-0.5,-1" Width="10">
                     <OrthographicCamera.Transform>
-                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="4" />
+                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="{Binding ElementName=distanceSlider,Path=Value}" />
                     </OrthographicCamera.Transform>
                 </OrthographicCamera>
             </Viewport3D.Camera>
@@ -19,5 +23,6 @@
                 </ModelVisual3D>
             </Viewport3D.Children>
         </Viewport3D>
+        <Slider x:Name="distanceSlider" Grid.Column="1" Orientation="Vertical" Minimum="0" Maximum="10" Value="4" />
     </Grid>
 </UserControl>
