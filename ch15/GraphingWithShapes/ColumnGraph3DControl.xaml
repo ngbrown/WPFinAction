@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="GraphingWithShapes.ColumnGraph3DControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="300" Width="300">
+    <Grid>
+        <Viewport3D x:Name="main" ClipToBounds="True">
+            <Viewport3D.Camera>
+                <OrthographicCamera Position="0,0,3" LookDirection="-0.5,-0.5,-1" Width="10" />
+            </Viewport3D.Camera>
+            <Viewport3D.Children>
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <DirectionalLight Color="White" Direction="-2,-3,-1" />
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </Viewport3D.Children>
+        </Viewport3D>
+    </Grid>
+</UserControl>

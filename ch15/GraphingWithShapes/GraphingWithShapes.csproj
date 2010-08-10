@@ -63,6 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ColumnGraph3DControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ColumnGraphCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +93,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnGraph3DControl.xaml.cs">
+      <DependentUpon>ColumnGraph3DControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ColumnGraphCtrl.xaml.cs">
       <DependentUpon>ColumnGraphCtrl.xaml</DependentUpon>
     </Compile>
