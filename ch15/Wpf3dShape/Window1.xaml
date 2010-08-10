@@ -4,6 +4,9 @@
     Title="Window1" Height="300" Width="300">
     <Grid>
         <Viewport3D>
+            <Viewport3D.Camera>
+                <OrthographicCamera Position="0,0,3" LookDirection="0,0,-1" Width="5" />
+            </Viewport3D.Camera>
             <Viewport3D.Children>
                 <ModelVisual3D>
                     <ModelVisual3D.Content>
