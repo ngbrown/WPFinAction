@@ -56,7 +56,81 @@ namespace GraphingWithShapes
         {
             ClearModels();
 
-            // Details to follow
+            if (dataPoints != null)
+            {
+                double spaceToUseY = 5;
+                double spaceToUseX = 5;
+                double barWidth = spaceToUseX / dataPoints.Count;
+                double largestValue = GetLargestValue();
+                double unitHeight = spaceToUseY / largestValue;
+
+                double bottom = -spaceToUseY;
+                double left = -spaceToUseX;
+                double height;
+                int nIndex = 0;
+
+                foreach (NameValuePair nvp in dataPoints)
+                {
+                    height = (nvp.Value * unitHeight);
+                    Color col = columnColors[nIndex % columnColors.Count];
+
+                    Model3D column = CreateColumn(left, bottom, height, barWidth, 0, barWidth, col);
+                    ModelVisual3D model = new ModelVisual3D();
+                    model.Content = column;
+                    main.Children.Add(model);
+
+                    left += barWidth;
+                    nIndex++;
+                }
+            }
+        }
+
+        private Model3D CreateColumn(double left, double bottom, double height, double width, int front, double depth, Color col)
+        {
+            Model3DGroup modelGroup = new Model3DGroup();
+
+            Point3D p0 = new Point3D(left, bottom, front);
+            Point3D p1 = new Point3D(left + width, bottom, front);
+            Point3D p2 = new Point3D(left, bottom + height, front);
+            Point3D p3 = new Point3D(left + width, bottom + height, front);
+            Point3D p4 = new Point3D(left, bottom, front - depth);
+            Point3D p5 = new Point3D(left + width, bottom, front - depth);
+            Point3D p6 = new Point3D(left, bottom + height, front - depth);
+            Point3D p7 = new Point3D(left + width, bottom + height, front - depth);
+
+            modelGroup.Children.Add(CreateSide(p0, p1, p2, p3, col)); // Front
+            modelGroup.Children.Add(CreateSide(p0, p4, p2, p6, col)); // Left
+            modelGroup.Children.Add(CreateSide(p4, p5, p6, p7, col)); // Back
+            modelGroup.Children.Add(CreateSide(p1, p5, p3, p7, col)); // Right
+            modelGroup.Children.Add(CreateSide(p2, p3, p6, p7, col)); // Top
+            modelGroup.Children.Add(CreateSide(p0, p1, p4, p5, col)); // Bottom
+
+            return modelGroup;
+        }
+
+        private Model3D CreateSide(Point3D pA, Point3D pB, Point3D pC, Point3D pD, Color col)
+        {
+            GeometryModel3D model = new GeometryModel3D();
+            model.Material = new DiffuseMaterial(new SolidColorBrush(col));
+            model.BackMaterial = model.Material;
+
+            MeshGeometry3D mesh = new MeshGeometry3D();
+            mesh.Positions.Add(pA);
+            mesh.Positions.Add(pB);
+            mesh.Positions.Add(pC);
+            mesh.Positions.Add(pD);
+
+            mesh.TriangleIndices.Add(0);
+            mesh.TriangleIndices.Add(1);
+            mesh.TriangleIndices.Add(2);
+
+            mesh.TriangleIndices.Add(1);
+            mesh.TriangleIndices.Add(3);
+            mesh.TriangleIndices.Add(2);
+
+            model.Geometry = mesh;
+
+            return model;
         }
 
         private void ClearModels()
