@@ -62,6 +62,9 @@ namespace DictionaryPages
             para1.FontSize = 18;
             para1.Inlines.Add(new Bold(new Run(word)));
             doc.Blocks.Add(para1);
+            Paragraph paraDate = new Paragraph();
+            paraDate.Inlines.Add(new Run("Looked up: " + DateTime.Now.ToString("T")));
+            doc.Blocks.Add(paraDate);
             Paragraph para2 = new Paragraph();
             para2.Inlines.Add(new Run(strResult));
             doc.Blocks.Add(para2);
