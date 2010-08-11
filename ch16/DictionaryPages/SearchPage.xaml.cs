@@ -109,7 +109,7 @@ namespace DictionaryPages
             return sb.ToString();
         }
 
-        private static string dictionaryToUse = "";
+        private static string dictionaryToUse = "*";
 
         private void OnSelectDictionary(object sender, RoutedEventArgs e)
         {

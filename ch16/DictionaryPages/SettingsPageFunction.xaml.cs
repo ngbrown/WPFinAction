@@ -34,6 +34,7 @@ namespace DictionaryPages
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            dictionaryCombo.Items.Add("*");
             dictionaryCombo.Items.Add("A11");
             dictionaryCombo.Items.Add("moby-thes");
             dictionaryCombo.Items.Add("vera");
