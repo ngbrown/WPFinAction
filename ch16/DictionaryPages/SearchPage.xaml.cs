@@ -54,7 +54,11 @@ namespace DictionaryPages
 
         private void DefineWord(string word)
         {
-            string command = "DEFINE * " + word;
+            string dictionary = "*";
+            if (dictionaryToUse.Length > 0)
+                dictionary = dictionaryToUse;
+
+            string command = "DEFINE " + dictionary + " " + word;
             string strResult = ExecuteCommand(command);
 
             FlowDocument doc = new FlowDocument();
@@ -103,6 +107,24 @@ namespace DictionaryPages
             }
 
             return sb.ToString();
+        }
+
+        private static string dictionaryToUse = "";
+
+        private void OnSelectDictionary(object sender, RoutedEventArgs e)
+        {
+            SettingsPageFunction pageFunction = new SettingsPageFunction(dictionaryToUse);
+            pageFunction.Return += new ReturnEventHandler<string>(OnSettingsPageFunctionReturned);
+
+            NavigationService.Navigate(pageFunction);
+        }
+
+        void OnSettingsPageFunctionReturned(object sender, ReturnEventArgs<string> e)
+        {
+            if (e.Result != null)
+            {
+                dictionaryToUse = e.Result;
+            }
         }
     }
 }
