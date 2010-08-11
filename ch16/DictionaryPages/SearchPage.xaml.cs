@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace DictionaryPages
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for SearchPage.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class SearchPage : Page
     {
-        public Window1()
+        public SearchPage()
         {
             InitializeComponent();
+        }
+
+        private void OnSearch(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
