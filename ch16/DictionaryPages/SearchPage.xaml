@@ -12,5 +12,6 @@
         <TextBox Name="searchText" Margin="9,5.36,91,5.36" />
         <Button Name="searchButton" Click="OnSearch" HorizontalAlignment="Right" Width="75" Height="23" Margin="0,3.5,9,3.5">Search</Button>
         <FlowDocumentReader Grid.Row="1" Name="searchResults" />
+        <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Grid.Row="2"><Hyperlink NavigateUri="HelpPage.xaml">Help</Hyperlink></TextBlock>
     </Grid>
 </Page>
