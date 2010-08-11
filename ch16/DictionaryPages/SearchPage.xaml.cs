@@ -31,12 +31,24 @@ namespace DictionaryPages
             InitializeComponent();
         }
 
+        public SearchPage(string word)
+            : this()
+        {
+            searchText.Text = word;
+            DefineWord(word);
+            Title = "Search - " + word;
+        }
+
         private void OnSearch(object sender, RoutedEventArgs e)
         {
             Mouse.OverrideCursor = Cursors.Wait;
             string word = searchText.Text.Trim();
             if (word.Length > 0)
+            {
+                SearchPage page = new SearchPage(word);
+                NavigationService.Navigate(page);
                 DefineWord(word);
+            }
             Mouse.OverrideCursor = null;
         }
 
