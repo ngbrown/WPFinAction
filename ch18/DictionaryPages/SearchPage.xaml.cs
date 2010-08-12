@@ -163,5 +163,49 @@ namespace DictionaryPages
 
             return newDoc;
         }
+
+        private void OnPrintFixed(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                FixedDocument fixedDocument = new FixedDocument();
+                fixedDocument.DocumentPaginator.PageSize = 
+                    new Size(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
+
+                PageContent firstPage = new PageContent();
+                FixedPage fixedPage = new FixedPage();
+
+                Canvas canvas = new Canvas();
+                canvas.Width = fixedDocument.DocumentPaginator.PageSize.Width;
+                canvas.Height = fixedDocument.DocumentPaginator.PageSize.Height;
+                fixedPage.Children.Add(canvas);
+
+                TextBlock tb = new TextBlock();
+                tb.Foreground = Brushes.Black;
+                tb.FontFamily = new System.Windows.Media.FontFamily("Arial");
+                tb.FontSize = 36.0;
+                tb.Text = "Hello";
+                Canvas.SetTop(tb, 70);
+                Canvas.SetLeft(tb, 70);
+                canvas.Children.Add(tb);
+
+                Ellipse ell = new Ellipse();
+                ell.Width = 400;
+                ell.Height = 400;
+                ell.StrokeThickness = 3;
+                ell.Stroke = new SolidColorBrush(Colors.Black);
+                Canvas.SetTop(ell, 200);
+                Canvas.SetLeft(ell, 300);
+                canvas.Children.Add(ell);
+
+                ((System.Windows.Markup.IAddChild)firstPage).AddChild(fixedPage);
+                fixedDocument.Pages.Add(firstPage);
+
+                PrintQueue queue = printDialog.PrintQueue;
+                XpsDocumentWriter docWriter = PrintQueue.CreateXpsDocumentWriter(queue);
+                docWriter.Write(fixedDocument.DocumentPaginator);
+            }
+        }
     }
 }
