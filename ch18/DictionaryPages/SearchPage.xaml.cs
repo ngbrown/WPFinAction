@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Net.Sockets;
 using System.IO;
 using System.Printing;
+using System.Windows.Markup;
+using System.Xml;
 
 namespace DictionaryPages
 {
@@ -134,10 +136,25 @@ namespace DictionaryPages
             bool? print = printDialog.ShowDialog();
             if (print == true)
             {
-                IDocumentPaginatorSource paginatorSource = searchResults.Document as IDocumentPaginatorSource;
+                FlowDocument docCopy = CopyFlowDocument(searchResults.Document);
+                docCopy.PagePadding = new Thickness(96);
+                docCopy.ColumnWidth = double.NaN;
+
+                IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
 
                 printDialog.PrintDocument(paginatorSource.DocumentPaginator, "Dictionary");
             }
+        }
+
+        protected FlowDocument CopyFlowDocument(FlowDocument originalDoc)
+        {
+            string xmlDoc = XamlWriter.Save(originalDoc);
+
+            StringReader stringReader = new StringReader(xmlDoc);
+            XmlReader xmlReader = XmlReader.Create(stringReader);
+            FlowDocument newDoc = (FlowDocument)XamlReader.Load(xmlReader);
+
+            return newDoc;
         }
     }
 }
