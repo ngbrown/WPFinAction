@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Sockets;
 using System.IO;
+using System.Printing;
 
 namespace DictionaryPages
 {
@@ -124,6 +125,18 @@ namespace DictionaryPages
             if (e.Result != null)
             {
                 dictionaryToUse = e.Result;
+            }
+        }
+
+        private void OnPrint(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            bool? print = printDialog.ShowDialog();
+            if (print == true)
+            {
+                IDocumentPaginatorSource paginatorSource = searchResults.Document as IDocumentPaginatorSource;
+
+                printDialog.PrintDocument(paginatorSource.DocumentPaginator, "Dictionary");
             }
         }
     }
