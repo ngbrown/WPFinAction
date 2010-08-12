@@ -208,6 +208,24 @@ namespace DictionaryPages
                 Canvas.SetTop(border, 3 * 96);
                 canvas.Children.Add(border);
 
+                FlowDocument docCopy = CopyFlowDocument(searchResults.Document);
+                docCopy.ColumnWidth = double.NaN;
+                docCopy.PageWidth = border.Width - 2;
+                docCopy.PageHeight = border.Height - 2;
+                IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
+                DocumentPage docPage = paginatorSource.DocumentPaginator.GetPage(0);
+
+                RenderTargetBitmap renderTarget = 
+                    new RenderTargetBitmap(
+                        (int)docCopy.PageWidth, (int)docCopy.PageHeight, 96, 96, System.Windows.Media.PixelFormats.Default);
+                renderTarget.Render(docPage.Visual);
+
+                Image img = new Image();
+                img.Width = docCopy.PageWidth;
+                img.Height = docCopy.PageHeight;
+                img.Source = renderTarget;
+                border.Child = img;
+
                 ((System.Windows.Markup.IAddChild)firstPage).AddChild(fixedPage);
                 fixedDocument.Pages.Add(firstPage);
 
