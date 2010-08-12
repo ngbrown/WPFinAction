@@ -1,0 +1,1 @@
+"%ProgramFiles(x86)%\Microsoft Webmatrix\iisexpress" /path:"%CD%\DictionaryClickOnce" /port:8080 /clr:v2.0
