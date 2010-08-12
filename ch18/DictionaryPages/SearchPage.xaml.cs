@@ -215,9 +215,12 @@ namespace DictionaryPages
                 IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
                 DocumentPage docPage = paginatorSource.DocumentPaginator.GetPage(0);
 
+                int xPixels = (int)printDialog.PrintTicket.PageResolution.X;
+                int yPixels = (int)printDialog.PrintTicket.PageResolution.Y;
+
                 RenderTargetBitmap renderTarget = 
                     new RenderTargetBitmap(
-                        (int)docCopy.PageWidth, (int)docCopy.PageHeight, 96, 96, System.Windows.Media.PixelFormats.Default);
+                        xPixels * 4, yPixels * 6, xPixels, yPixels, System.Windows.Media.PixelFormats.Default);
                 renderTarget.Render(docPage.Visual);
 
                 Image img = new Image();
