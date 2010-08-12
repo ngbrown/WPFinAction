@@ -12,14 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DictionaryForBrowser
+namespace DictionaryPages
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for HelpPage.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class HelpPage : Page
     {
-        public Page1()
+        public HelpPage()
         {
             InitializeComponent();
         }
