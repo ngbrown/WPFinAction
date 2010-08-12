@@ -199,6 +199,15 @@ namespace DictionaryPages
                 Canvas.SetLeft(ell, 300);
                 canvas.Children.Add(ell);
 
+                Border border = new Border();
+                border.BorderBrush = Brushes.Black;
+                border.BorderThickness = new Thickness(1);
+                border.Width = (4 * 96);
+                border.Height = (6 * 96);
+                Canvas.SetLeft(border, 96);
+                Canvas.SetTop(border, 3 * 96);
+                canvas.Children.Add(border);
+
                 ((System.Windows.Markup.IAddChild)firstPage).AddChild(fixedPage);
                 fixedDocument.Pages.Add(firstPage);
 
