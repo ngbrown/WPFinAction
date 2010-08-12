@@ -133,23 +133,19 @@ namespace DictionaryPages
 
         private void OnPrint(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.UserPageRangeEnabled = true;
-            if (printDialog.ShowDialog() == true)
-            {
-                FlowDocument docCopy = CopyFlowDocument(searchResults.Document);
-                docCopy.PagePadding = new Thickness(96);
-                docCopy.ColumnWidth = double.NaN;
+            FlowDocument docCopy = CopyFlowDocument(searchResults.Document);
+            docCopy.PagePadding = new Thickness(96);
+            docCopy.ColumnWidth = double.NaN;
 
-                IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
+            IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
 
-                XpsDocumentWriter docWriter = PrintQueue.CreateXpsDocumentWriter(printDialog.PrintQueue);
+            PrintQueue queue = LocalPrintServer.GetDefaultPrintQueue();
+            XpsDocumentWriter docWriter = PrintQueue.CreateXpsDocumentWriter(queue);
 
-                docWriter.WritingCompleted += 
-                    new System.Windows.Documents.Serialization.WritingCompletedEventHandler(docWriter_WritingCompleted);
+            docWriter.WritingCompleted += 
+                new System.Windows.Documents.Serialization.WritingCompletedEventHandler(docWriter_WritingCompleted);
 
-                docWriter.WriteAsync(paginatorSource.DocumentPaginator);
-            }
+            docWriter.WriteAsync(paginatorSource.DocumentPaginator);
         }
 
         void docWriter_WritingCompleted(object sender, System.Windows.Documents.Serialization.WritingCompletedEventArgs e)
