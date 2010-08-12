@@ -17,6 +17,7 @@
             <Hyperlink Click="OnPrint">Print</Hyperlink> 
             <Hyperlink Click="OnPrintFixed">Print Fixed</Hyperlink> 
             <Hyperlink Click="OnPrintVisual">Print Visual</Hyperlink> 
+            <Hyperlink Click="OnSaveFile">Save File</Hyperlink> 
             <Hyperlink NavigateUri="HelpPage.xaml">Help</Hyperlink>
         </TextBlock>
     </Grid>

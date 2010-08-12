@@ -17,6 +17,8 @@ using System.Printing;
 using System.Windows.Markup;
 using System.Xml;
 using System.Windows.Xps;
+using Microsoft.Win32;
+using System.Windows.Xps.Packaging;
 
 namespace DictionaryPages
 {
@@ -297,6 +299,84 @@ namespace DictionaryPages
                 border.Child = img;
 
                 printDialog.PrintVisual(canvas, "Dictionary");
+            }
+        }
+
+        private void OnSaveFile(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "XPS Document (*.XPS)|*.XPS|All Files (*.*)|*.*";
+            if (saveDialog.ShowDialog() == true)
+            {
+                FixedDocument fixedDocument = new FixedDocument();
+                fixedDocument.DocumentPaginator.PageSize = new Size(96 * 8.5, 96 * 11);
+
+                // rest of the existing code
+                PageContent firstPage = new PageContent();
+                FixedPage fixedPage = new FixedPage();
+
+                Canvas canvas = new Canvas();
+                canvas.Width = fixedDocument.DocumentPaginator.PageSize.Width;
+                canvas.Height = fixedDocument.DocumentPaginator.PageSize.Height;
+                fixedPage.Children.Add(canvas);
+
+                TextBlock tb = new TextBlock();
+                tb.Foreground = Brushes.Black;
+                tb.FontFamily = new System.Windows.Media.FontFamily("Arial");
+                tb.FontSize = 36.0;
+                tb.Text = "Hello";
+                Canvas.SetTop(tb, 70);
+                Canvas.SetLeft(tb, 70);
+                canvas.Children.Add(tb);
+
+                Ellipse ell = new Ellipse();
+                ell.Width = 400;
+                ell.Height = 400;
+                ell.StrokeThickness = 3;
+                ell.Stroke = new SolidColorBrush(Colors.Black);
+                Canvas.SetTop(ell, 200);
+                Canvas.SetLeft(ell, 300);
+                canvas.Children.Add(ell);
+
+                Border border = new Border();
+                border.BorderBrush = Brushes.Black;
+                border.BorderThickness = new Thickness(1);
+                border.Width = (4 * 96);
+                border.Height = (6 * 96);
+                Canvas.SetLeft(border, 96);
+                Canvas.SetTop(border, 3 * 96);
+                canvas.Children.Add(border);
+
+                FlowDocument docCopy = CopyFlowDocument(searchResults.Document);
+                docCopy.ColumnWidth = double.NaN;
+                docCopy.PageWidth = border.Width - 2;
+                docCopy.PageHeight = border.Height - 2;
+                IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
+                DocumentPage docPage = paginatorSource.DocumentPaginator.GetPage(0);
+
+                // XPS can probably handle any resolution.  A bitmap is not a good solution.
+                int xPixels = 96;
+                int yPixels = 96;
+
+                RenderTargetBitmap renderTarget =
+                    new RenderTargetBitmap(
+                        xPixels * 4, yPixels * 6, xPixels, yPixels, System.Windows.Media.PixelFormats.Default);
+                renderTarget.Render(docPage.Visual);
+
+                Image img = new Image();
+                img.Width = docCopy.PageWidth;
+                img.Height = docCopy.PageHeight;
+                img.Source = renderTarget;
+                border.Child = img;
+
+                ((System.Windows.Markup.IAddChild)firstPage).AddChild(fixedPage);
+                fixedDocument.Pages.Add(firstPage);
+
+                XpsDocument doc = new XpsDocument(saveDialog.FileName, FileAccess.ReadWrite);
+
+                XpsDocumentWriter docWriter = XpsDocument.CreateXpsDocumentWriter(doc);
+                docWriter.Write(fixedDocument.DocumentPaginator);
+                doc.Close();
             }
         }
     }
