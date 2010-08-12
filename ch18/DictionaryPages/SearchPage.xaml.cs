@@ -16,6 +16,7 @@ using System.IO;
 using System.Printing;
 using System.Windows.Markup;
 using System.Xml;
+using System.Windows.Xps;
 
 namespace DictionaryPages
 {
@@ -133,8 +134,8 @@ namespace DictionaryPages
         private void OnPrint(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new PrintDialog();
-            bool? print = printDialog.ShowDialog();
-            if (print == true)
+            printDialog.UserPageRangeEnabled = true;
+            if (printDialog.ShowDialog() == true)
             {
                 FlowDocument docCopy = CopyFlowDocument(searchResults.Document);
                 docCopy.PagePadding = new Thickness(96);
@@ -142,8 +143,18 @@ namespace DictionaryPages
 
                 IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
 
-                printDialog.PrintDocument(paginatorSource.DocumentPaginator, "Dictionary");
+                XpsDocumentWriter docWriter = PrintQueue.CreateXpsDocumentWriter(printDialog.PrintQueue);
+
+                docWriter.WritingCompleted += 
+                    new System.Windows.Documents.Serialization.WritingCompletedEventHandler(docWriter_WritingCompleted);
+
+                docWriter.WriteAsync(paginatorSource.DocumentPaginator);
             }
+        }
+
+        void docWriter_WritingCompleted(object sender, System.Windows.Documents.Serialization.WritingCompletedEventArgs e)
+        {
+            MessageBox.Show("Done Printing!", "Dictionary");
         }
 
         protected FlowDocument CopyFlowDocument(FlowDocument originalDoc)
