@@ -124,6 +124,7 @@
     <Compile Include="SettingsPageFunction.xaml.cs">
       <DependentUpon>SettingsPageFunction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VisualHolder.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -217,19 +217,11 @@ namespace DictionaryPages
                 IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
                 DocumentPage docPage = paginatorSource.DocumentPaginator.GetPage(0);
 
-                int xPixels = (int)printDialog.PrintTicket.PageResolution.X;
-                int yPixels = (int)printDialog.PrintTicket.PageResolution.Y;
-
-                RenderTargetBitmap renderTarget = 
-                    new RenderTargetBitmap(
-                        xPixels * 4, yPixels * 6, xPixels, yPixels, System.Windows.Media.PixelFormats.Default);
-                renderTarget.Render(docPage.Visual);
-
-                Image img = new Image();
-                img.Width = docCopy.PageWidth;
-                img.Height = docCopy.PageHeight;
-                img.Source = renderTarget;
-                border.Child = img;
+                VisualHolder holder = new VisualHolder();
+                holder.Width = docCopy.PageWidth;
+                holder.Height = docCopy.PageHeight;
+                holder.HeldVisual = docPage.Visual;
+                border.Child = holder;
 
                 ((System.Windows.Markup.IAddChild)firstPage).AddChild(fixedPage);
                 fixedDocument.Pages.Add(firstPage);
@@ -284,19 +276,11 @@ namespace DictionaryPages
                 IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
                 DocumentPage docPage = paginatorSource.DocumentPaginator.GetPage(0);
 
-                int xPixels = (int)printDialog.PrintTicket.PageResolution.X;
-                int yPixels = (int)printDialog.PrintTicket.PageResolution.Y;
-
-                RenderTargetBitmap renderTarget = 
-                    new RenderTargetBitmap(
-                        xPixels * 4, yPixels * 6, xPixels, yPixels, System.Windows.Media.PixelFormats.Default);
-                renderTarget.Render(docPage.Visual);
-
-                Image img = new Image();
-                img.Width = docCopy.PageWidth;
-                img.Height = docCopy.PageHeight;
-                img.Source = renderTarget;
-                border.Child = img;
+                VisualHolder holder = new VisualHolder();
+                holder.Width = docCopy.PageWidth;
+                holder.Height = docCopy.PageHeight;
+                holder.HeldVisual = docPage.Visual;
+                border.Child = holder;
 
                 printDialog.PrintVisual(canvas, "Dictionary");
             }
@@ -354,20 +338,11 @@ namespace DictionaryPages
                 IDocumentPaginatorSource paginatorSource = docCopy as IDocumentPaginatorSource;
                 DocumentPage docPage = paginatorSource.DocumentPaginator.GetPage(0);
 
-                // XPS can probably handle any resolution.  A bitmap is not a good solution.
-                int xPixels = 96;
-                int yPixels = 96;
-
-                RenderTargetBitmap renderTarget =
-                    new RenderTargetBitmap(
-                        xPixels * 4, yPixels * 6, xPixels, yPixels, System.Windows.Media.PixelFormats.Default);
-                renderTarget.Render(docPage.Visual);
-
-                Image img = new Image();
-                img.Width = docCopy.PageWidth;
-                img.Height = docCopy.PageHeight;
-                img.Source = renderTarget;
-                border.Child = img;
+                VisualHolder holder = new VisualHolder();
+                holder.Width = docCopy.PageWidth;
+                holder.Height = docCopy.PageHeight;
+                holder.HeldVisual = docPage.Visual;
+                border.Child = holder;
 
                 ((System.Windows.Markup.IAddChild)firstPage).AddChild(fixedPage);
                 fixedDocument.Pages.Add(firstPage);
