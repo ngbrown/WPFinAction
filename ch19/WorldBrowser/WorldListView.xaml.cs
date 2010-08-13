@@ -20,8 +20,6 @@ namespace WorldBrowser
     /// </summary>
     public partial class WorldListView : UserControl
     {
-        private bool showingA = true;
-
         public WorldListView()
         {
             InitializeComponent();
@@ -69,22 +67,12 @@ namespace WorldBrowser
                     string country = lb.SelectedItem.ToString();
                     FlowDocument doc = App.Current.Lookup.DefineWord(country);
 
-                    if (showingA)
-                    {
-                        docReaderB.Document = doc;
-                        doc.Background = docReaderB.Background;
-                        BeginStoryboard storyboard = FindResource("FadeInB") as BeginStoryboard;
-                        BeginStoryboard(storyboard.Storyboard);
-                    }
-                    else
-                    {
-                        docReaderA.Document = doc;
-                        doc.Background = docReaderA.Background;
-                        BeginStoryboard storyboard = FindResource("FadeInA") as BeginStoryboard;
-                        BeginStoryboard(storyboard.Storyboard);
-                    }
+                    FlowDocumentReader reader = Switcher.UnselectedElement as FlowDocumentReader;
 
-                    showingA = !showingA;
+                    doc.Background = reader.Background;
+                    reader.Document = doc;
+
+                    Switcher.Switch();
                 }
             }
             finally
