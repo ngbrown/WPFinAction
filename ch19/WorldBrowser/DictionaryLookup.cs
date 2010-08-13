@@ -50,18 +50,26 @@ namespace WorldBrowser
 
         private string ExecuteCommand(string command)
         {
-            // copied from Dictionary app
-            StringBuilder response = new StringBuilder();
-            using (TcpClient client = new TcpClient())
+            try
             {
-                client.Connect(defaultServer, defaultPort);
-                using (Stream clientStream = client.GetStream())
+                StringBuilder response = new StringBuilder();
+                using (TcpClient client = new TcpClient())
                 {
-                    response.Append(GetResponse(command + "\r\n", clientStream));
-                    response.Append(GetResponse("QUIT\r\n", clientStream));
+                    client.Connect(defaultServer, defaultPort);
+                    using (Stream clientStream = client.GetStream())
+                    {
+                        //response.Append(
+                        GetResponse(command + "\r\n", clientStream); //);
+                        response.Append(GetResponse("QUIT\r\n", clientStream));
+                        //);
+                    }
                 }
+                return response.ToString();
             }
-            return response.ToString();
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         private string GetResponse(string requestString, Stream clientStream)
