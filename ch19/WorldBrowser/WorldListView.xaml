@@ -29,6 +29,7 @@
                     From="1.0" To="0.0" Duration="{StaticResource animationTime}" />
             </Storyboard>
         </BeginStoryboard>
+        
         <ControlTemplate TargetType="{x:Type local:ABSwitcher}" x:Key="SimpleTemplate">
             <Grid>
                 <ContentPresenter Name="ElementAPresenter" Visibility="Hidden" Content="{TemplateBinding ElementA}" />
@@ -83,7 +84,71 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <ControlTemplate TargetType="{x:Type local:ABSwitcher}" x:Key="WipeTemplate">
+            <Grid>
+                <ContentPresenter Name="ElementAPresenter" Visibility="Visible" Content="{TemplateBinding ElementA}" />
+                <ContentPresenter Name="ElementBPresenter" Visibility="Visible" Content="{TemplateBinding ElementB}" />
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="local:ABSwitcher.CurrentElement" Value="ElementA">
+                    <Setter TargetName="ElementAPresenter" Property="Grid.ZIndex" Value="1" />
+                    <Setter TargetName="ElementAPresenter" Property="OpacityMask">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                                <GradientStop Offset="0" Color="Black" />
+                                <GradientStop Offset="0" Color="Transparent" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="ElementAPresenter"
+                                    Storyboard.TargetProperty="OpacityMask.(LinearGradientBrush.GradientStops)[0].Offset"
+                                    From="0.0" To="1.0" 
+                                    Duration="{StaticResource animationTime}" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="ElementAPresenter"
+                                    Storyboard.TargetProperty="OpacityMask.(LinearGradientBrush.GradientStops)[1].Offset"
+                                    From="0.0" To="1.0" 
+                                    Duration="{StaticResource animationTime}" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+                <Trigger Property="local:ABSwitcher.CurrentElement" Value="ElementB">
+                    <Setter TargetName="ElementBPresenter" Property="Grid.ZIndex" Value="1" />
+                    <Setter TargetName="ElementBPresenter" Property="OpacityMask">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0" Color="Black" />
+                                <GradientStop Offset="0" Color="Transparent" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="ElementBPresenter"
+                                    Storyboard.TargetProperty="OpacityMask.(LinearGradientBrush.GradientStops)[0].Offset"
+                                    From="0.0" To="1.0" 
+                                    Duration="{StaticResource animationTime}" />
+                                <DoubleAnimation
+                                    Storyboard.TargetName="ElementBPresenter"
+                                    Storyboard.TargetProperty="OpacityMask.(LinearGradientBrush.GradientStops)[1].Offset"
+                                    From="0.0" To="1.0" 
+                                    Duration="{StaticResource animationTime}" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </UserControl.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />
@@ -92,7 +157,7 @@
         <ScrollViewer Name="continentScrollViewer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="1">
             <StackPanel Name="continentStackPanel" />
         </ScrollViewer>
-        <local:ABSwitcher x:Name="Switcher" Template="{StaticResource FadeTemplate}" Grid.Column="1">
+        <local:ABSwitcher x:Name="Switcher" Template="{StaticResource WipeTemplate}" Grid.Column="1">
             <local:ABSwitcher.ElementA>
                 <FlowDocumentReader Name="docReaderA" Background="LightGoldenrodYellow">
                     <FlowDocument Background="LightGoldenrodYellow">
