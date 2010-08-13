@@ -108,6 +108,7 @@
                                     Storyboard.TargetName="ElementAPresenter"
                                     Storyboard.TargetProperty="OpacityMask.(LinearGradientBrush.GradientStops)[0].Offset"
                                     From="0.0" To="1.0" 
+                                    BeginTime="0:0:0.1"
                                     Duration="{StaticResource animationTime}" />
                                 <DoubleAnimation
                                     Storyboard.TargetName="ElementAPresenter"
@@ -135,6 +136,7 @@
                                     Storyboard.TargetName="ElementBPresenter"
                                     Storyboard.TargetProperty="OpacityMask.(LinearGradientBrush.GradientStops)[0].Offset"
                                     From="0.0" To="1.0" 
+                                    BeginTime="0:0:0.1"
                                     Duration="{StaticResource animationTime}" />
                                 <DoubleAnimation
                                     Storyboard.TargetName="ElementBPresenter"
