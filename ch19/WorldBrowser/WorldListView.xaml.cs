@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace WorldBrowser
 {
@@ -19,6 +20,8 @@ namespace WorldBrowser
     /// </summary>
     public partial class WorldListView : UserControl
     {
+        private bool showingA = true;
+
         public WorldListView()
         {
             InitializeComponent();
@@ -66,8 +69,22 @@ namespace WorldBrowser
                     string country = lb.SelectedItem.ToString();
                     FlowDocument doc = App.Current.Lookup.DefineWord(country);
 
-                    docReaderA.Document = doc;
-                    doc.Background = docReaderA.Background;
+                    if (showingA)
+                    {
+                        docReaderB.Document = doc;
+                        doc.Background = docReaderB.Background;
+                        BeginStoryboard storyboard = FindResource("FadeInB") as BeginStoryboard;
+                        BeginStoryboard(storyboard.Storyboard);
+                    }
+                    else
+                    {
+                        docReaderA.Document = doc;
+                        doc.Background = docReaderA.Background;
+                        BeginStoryboard storyboard = FindResource("FadeInA") as BeginStoryboard;
+                        BeginStoryboard(storyboard.Storyboard);
+                    }
+
+                    showingA = !showingA;
                 }
             }
             finally
