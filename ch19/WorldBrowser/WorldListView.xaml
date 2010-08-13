@@ -44,6 +44,45 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <ControlTemplate TargetType="{x:Type local:ABSwitcher}" x:Key="FadeTemplate">
+            <Grid>
+                <ContentPresenter Name="ElementAPresenter" ContentPresenter.Opacity="1" Grid.ZIndex="1" Content="{TemplateBinding ElementA}" />
+                <ContentPresenter Name="ElementBPresenter" ContentPresenter.Opacity="0" Grid.ZIndex="0" Content="{TemplateBinding ElementB}" />
+            </Grid>
+            
+            <ControlTemplate.Triggers>
+                <Trigger Property="local:ABSwitcher.CurrentElement" Value="ElementA">
+                    <Setter TargetName="ElementAPresenter" Property="Grid.ZIndex" Value="1" />
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="ElementAPresenter"  
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0" To="1.0" 
+                                    Duration="{StaticResource animationTime}"
+                                    FillBehavior="HoldEnd" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+                <Trigger Property="local:ABSwitcher.CurrentElement" Value="ElementB">
+                    <Setter TargetName="ElementBPresenter" Property="Grid.ZIndex" Value="1" />
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="ElementBPresenter"  
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0" To="1.0" 
+                                    Duration="{StaticResource animationTime}"
+                                    FillBehavior="HoldEnd" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -53,7 +92,7 @@
         <ScrollViewer Name="continentScrollViewer" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="1">
             <StackPanel Name="continentStackPanel" />
         </ScrollViewer>
-        <local:ABSwitcher x:Name="Switcher" Template="{StaticResource SimpleTemplate}" Grid.Column="1">
+        <local:ABSwitcher x:Name="Switcher" Template="{StaticResource FadeTemplate}" Grid.Column="1">
             <local:ABSwitcher.ElementA>
                 <FlowDocumentReader Name="docReaderA" Background="LightGoldenrodYellow">
                     <FlowDocument Background="LightGoldenrodYellow">
