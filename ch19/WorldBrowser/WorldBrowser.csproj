@@ -86,6 +86,9 @@
     <Compile Include="WorldBrowserMain.xaml.cs">
       <DependentUpon>WorldBrowserMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorldListView.xaml.cs">
+      <DependentUpon>WorldListView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -98,6 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="WorldBrowserMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorldListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

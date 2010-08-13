@@ -14,6 +14,12 @@ namespace WorldBrowser
     {
         public DictionaryLookup Lookup { get; private set; }
 
+        public static new App Current
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get { return (App)Application.Current; }
+        }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             Lookup = new DictionaryLookup();

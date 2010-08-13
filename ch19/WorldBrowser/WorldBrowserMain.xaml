@@ -1,8 +1,9 @@
 ﻿<Window x:Class="WorldBrowser.WorldBrowserMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="WorldBrowserMain" Height="300" Width="300">
+    xmlns:local="clr-namespace:WorldBrowser"
+    Title="WorldBrowserMain">
     <Grid>
-        
+        <local:WorldListView x:Name="worldListView" Width="Auto" Height="Auto" />
     </Grid>
 </Window>
