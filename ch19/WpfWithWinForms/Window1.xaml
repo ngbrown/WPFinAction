@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     xmlns:mwfl="clr-namespace:MyWindowsFormsLibrary;assembly=MyWindowsFormsLibrary"
-    Title="Enter Personal Data" Height="300" Width="398">
+    Title="Enter Personal Data" Height="418" Width="398">
     <Grid>
         <Label Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top">Name:</Label>
         <Label Height="28" HorizontalAlignment="Left" Margin="12,46,0,0" VerticalAlignment="Top">Birthday:</Label>
@@ -12,8 +12,11 @@
             <wf:DateTimePicker x:Name="birthday" Format="Short" />
         </WindowsFormsHost>
         <Button HorizontalAlignment="Right" Margin="0,80,12,0" Name="accept" Height="23" VerticalAlignment="Top" Width="73" Click="accept_Click">Accept</Button>
-        <WindowsFormsHost Margin="12,109,12,12" Name="windowsFormsHost1">
+        <WindowsFormsHost Margin="12,109,12,0" Name="windowsFormsHost1" Height="91" VerticalAlignment="Top">
             <mwfl:MyWindowsFormsControl Dock="Fill" />
+        </WindowsFormsHost>
+        <WindowsFormsHost Margin="12,206,12,12" Name="windowsFormsHost2">
+            <mwfl:SystemMonitorHolder />
         </WindowsFormsHost>
     </Grid>
 </Window>

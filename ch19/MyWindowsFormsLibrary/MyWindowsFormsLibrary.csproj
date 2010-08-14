@@ -60,6 +60,12 @@
       <DependentUpon>MyWindowsFormsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemMonitorHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemMonitorHolder.Designer.cs">
+      <DependentUpon>SystemMonitorHolder.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +75,35 @@
     <EmbeddedResource Include="MyWindowsFormsControl.resx">
       <DependentUpon>MyWindowsFormsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SystemMonitorHolder.resx">
+      <DependentUpon>SystemMonitorHolder.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxSystemMonitor">
+      <Guid>{1B773E42-2509-11CF-942F-008029004347}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SystemMonitor">
+      <Guid>{1B773E42-2509-11CF-942F-008029004347}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
