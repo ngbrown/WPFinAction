@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWithWinForms", "WpfWithWinForms.csproj", "{644F76BF-9DDD-40CD-81F1-AEC9A896375A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWindowsFormsLibrary", "..\MyWindowsFormsLibrary\MyWindowsFormsLibrary.csproj", "{45655FAD-A2A3-4A38-AD63-686D5285830A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{644F76BF-9DDD-40CD-81F1-AEC9A896375A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{644F76BF-9DDD-40CD-81F1-AEC9A896375A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{644F76BF-9DDD-40CD-81F1-AEC9A896375A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45655FAD-A2A3-4A38-AD63-686D5285830A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45655FAD-A2A3-4A38-AD63-686D5285830A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45655FAD-A2A3-4A38-AD63-686D5285830A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45655FAD-A2A3-4A38-AD63-686D5285830A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
