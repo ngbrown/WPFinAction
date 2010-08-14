@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BirthdayDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BirthdayDetails.Designer.cs">
+      <DependentUpon>BirthdayDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyWindowsFormsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -57,6 +63,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BirthdayDetails.resx">
+      <DependentUpon>BirthdayDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyWindowsFormsControl.resx">
       <DependentUpon>MyWindowsFormsControl.cs</DependentUpon>
     </EmbeddedResource>

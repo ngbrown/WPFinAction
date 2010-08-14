@@ -29,7 +29,10 @@ namespace WpfWithWinForms
             string name = nameTextBox.Text;
             DateTime born = birthday.Value;
 
-            MessageBox.Show(name + " was born on " + born.ToLongDateString());
+            MyWindowsFormsLibrary.BirthdayDetails dlg = new MyWindowsFormsLibrary.BirthdayDetails();
+            dlg.SetDetails(name + " was born on " + born.ToLongDateString());
+
+            dlg.Show();
         }
     }
 }
