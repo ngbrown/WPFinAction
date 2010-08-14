@@ -53,6 +53,9 @@
     <Compile Include="CalculatorControl.xaml.cs">
       <DependentUpon>CalculatorControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CalculatorWindow.xaml.cs">
+      <DependentUpon>CalculatorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -78,6 +81,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="CalculatorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CalculatorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

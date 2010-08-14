@@ -15,5 +15,11 @@ namespace WinFormsWithWpf
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyWPFControlLibrary.CalculatorWindow calc = new MyWPFControlLibrary.CalculatorWindow();
+            calc.ShowDialog();
+        }
     }
 }
