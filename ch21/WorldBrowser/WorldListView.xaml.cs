@@ -81,8 +81,16 @@ namespace WorldBrowser
             string country = state.ToString();
             FlowDocument doc = App.Current.Lookup.DefineWord(country);
 
-            // Blows up!!
+            Dispatcher.Invoke(DispatcherPriority.Normal, new WaitCallback(FinishLookup), doc);
+        }
+
+        private void FinishLookup(object state)
+        {
+            FlowDocument doc = state as FlowDocument;
+
             FlowDocumentReader reader = Switcher.UnselectedElement as FlowDocumentReader;
+
+            // Blows up!!
             doc.Background = reader.Background;
             reader.Document = doc;
             Switcher.Switch();
