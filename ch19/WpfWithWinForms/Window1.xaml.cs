@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Interop;
 
 namespace WpfWithWinForms
 {
@@ -32,7 +33,12 @@ namespace WpfWithWinForms
             MyWindowsFormsLibrary.BirthdayDetails dlg = new MyWindowsFormsLibrary.BirthdayDetails();
             dlg.SetDetails(name + " was born on " + born.ToLongDateString());
 
-            dlg.Show();
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+
+            System.Windows.Forms.NativeWindow nw = new System.Windows.Forms.NativeWindow();
+            nw.AssignHandle(helper.Handle);
+
+            dlg.Show(nw);
         }
     }
 }
