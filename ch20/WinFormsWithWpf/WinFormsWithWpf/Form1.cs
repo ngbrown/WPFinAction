@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Interop;
 
 namespace WinFormsWithWpf
 {
@@ -19,7 +20,9 @@ namespace WinFormsWithWpf
         private void button1_Click(object sender, EventArgs e)
         {
             MyWPFControlLibrary.CalculatorWindow calc = new MyWPFControlLibrary.CalculatorWindow();
-            calc.ShowDialog();
+            WindowInteropHelper helper = new WindowInteropHelper(calc);
+            helper.Owner = this.Handle;
+            calc.Show();
         }
     }
 }
