@@ -14,6 +14,9 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Threading;
 using System.Windows.Threading;
+using System.Windows.Markup;
+using System.IO;
+using System.Xml;
 
 namespace WorldBrowser
 {
@@ -81,16 +84,19 @@ namespace WorldBrowser
             string country = state.ToString();
             FlowDocument doc = App.Current.Lookup.DefineWord(country);
 
-            Dispatcher.Invoke(DispatcherPriority.Normal, new WaitCallback(FinishLookup), doc);
+            string str = XamlWriter.Save(doc);
+            Dispatcher.Invoke(DispatcherPriority.Normal, new WaitCallback(FinishLookup), str);
         }
 
         private void FinishLookup(object state)
         {
-            FlowDocument doc = state as FlowDocument;
+            string xamlDoc = state.ToString();
+
+            StringReader stringReader = new StringReader(xamlDoc);
+            XmlReader xmlReader = XmlReader.Create(stringReader);
+            FlowDocument doc = (FlowDocument)XamlReader.Load(xmlReader);
 
             FlowDocumentReader reader = Switcher.UnselectedElement as FlowDocumentReader;
-
-            // Blows up!!
             doc.Background = reader.Background;
             reader.Document = doc;
             Switcher.Switch();
