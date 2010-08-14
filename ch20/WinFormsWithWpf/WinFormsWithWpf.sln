@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsWithWpf", "WinFormsWithWpf\WinFormsWithWpf.csproj", "{41F9475E-8603-4611-9286-ECB09E71AE4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWPFControlLibrary", "MyWPFControlLibrary\MyWPFControlLibrary.csproj", "{BED2DE9C-AC5B-40AD-8AEF-9F482AB17A99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{41F9475E-8603-4611-9286-ECB09E71AE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41F9475E-8603-4611-9286-ECB09E71AE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41F9475E-8603-4611-9286-ECB09E71AE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BED2DE9C-AC5B-40AD-8AEF-9F482AB17A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED2DE9C-AC5B-40AD-8AEF-9F482AB17A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED2DE9C-AC5B-40AD-8AEF-9F482AB17A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED2DE9C-AC5B-40AD-8AEF-9F482AB17A99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
