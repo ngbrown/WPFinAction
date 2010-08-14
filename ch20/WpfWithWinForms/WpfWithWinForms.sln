@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWithWinForms", "WpfWithWinForms.csproj", "{644F76BF-9DDD-40CD-81F1-AEC9A896375A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWithWinForms", "WpfWithWinForms\WpfWithWinForms.csproj", "{644F76BF-9DDD-40CD-81F1-AEC9A896375A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWindowsFormsLibrary", "..\MyWindowsFormsLibrary\MyWindowsFormsLibrary.csproj", "{45655FAD-A2A3-4A38-AD63-686D5285830A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWindowsFormsLibrary", "MyWindowsFormsLibrary\MyWindowsFormsLibrary.csproj", "{45655FAD-A2A3-4A38-AD63-686D5285830A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
