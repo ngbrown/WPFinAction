@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace WorldBrowser
 {
@@ -65,20 +67,25 @@ namespace WorldBrowser
                 if (lb.SelectedItem != null)
                 {
                     string country = lb.SelectedItem.ToString();
-                    FlowDocument doc = App.Current.Lookup.DefineWord(country);
-
-                    FlowDocumentReader reader = Switcher.UnselectedElement as FlowDocumentReader;
-
-                    doc.Background = reader.Background;
-                    reader.Document = doc;
-
-                    Switcher.Switch();
+                    ThreadPool.QueueUserWorkItem(new WaitCallback(LookupThreadMethod), country);
                 }
             }
             finally
             {
                 Mouse.OverrideCursor = null;
             }
+        }
+
+        private void LookupThreadMethod(object state)
+        {
+            string country = state.ToString();
+            FlowDocument doc = App.Current.Lookup.DefineWord(country);
+
+            // Blows up!!
+            FlowDocumentReader reader = Switcher.UnselectedElement as FlowDocumentReader;
+            doc.Background = reader.Background;
+            reader.Document = doc;
+            Switcher.Switch();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Documents;
 using System.IO;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace WorldBrowser
 {
@@ -53,6 +54,7 @@ namespace WorldBrowser
             try
             {
                 StringBuilder response = new StringBuilder();
+                Thread.Sleep(4000);
                 using (TcpClient client = new TcpClient())
                 {
                     client.Connect(defaultServer, defaultPort);
