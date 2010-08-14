@@ -23,5 +23,13 @@ namespace WpfWithWinForms
         {
             InitializeComponent();
         }
+
+        private void accept_Click(object sender, RoutedEventArgs e)
+        {
+            string name = nameTextBox.Text;
+            DateTime born = birthday.Value;
+
+            MessageBox.Show(name + " was born on " + born.ToLongDateString());
+        }
     }
 }
