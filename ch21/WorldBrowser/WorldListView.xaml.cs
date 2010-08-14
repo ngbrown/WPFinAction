@@ -25,6 +25,8 @@ namespace WorldBrowser
     /// </summary>
     public partial class WorldListView : UserControl
     {
+        private DispatcherTimer clearTimer = null;
+
         public WorldListView()
         {
             InitializeComponent();
@@ -33,6 +35,26 @@ namespace WorldBrowser
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             LoadContinents();
+
+            clearTimer = new DispatcherTimer(DispatcherPriority.Normal);
+            clearTimer.Interval = new TimeSpan(0, 0, 30);
+            clearTimer.Tick += new EventHandler(clearTimer_Tick);
+
+            clearTimer.Start();
+        }
+
+        void clearTimer_Tick(object sender, EventArgs e)
+        {
+            FlowDocument doc = new FlowDocument();
+            Paragraph para1 = new Paragraph();
+            para1.FontSize = 18;
+            para1.Inlines.Add(new Bold(new Run("You are not authorized to view this data. Get out.")));
+            doc.Blocks.Add(para1);
+
+            FlowDocumentReader reader = Switcher.UnselectedElement as FlowDocumentReader;
+            doc.Background = reader.Background;
+            reader.Document = doc;
+            Switcher.Switch();
         }
 
         private void LoadContinents()
@@ -85,7 +107,8 @@ namespace WorldBrowser
             FlowDocument doc = App.Current.Lookup.DefineWord(country);
 
             string str = XamlWriter.Save(doc);
-            Dispatcher.Invoke(DispatcherPriority.Normal, new WaitCallback(FinishLookup), str);
+            DispatcherOperation op = 
+                Dispatcher.BeginInvoke(DispatcherPriority.Normal, new WaitCallback(FinishLookup), str);
         }
 
         private void FinishLookup(object state)
