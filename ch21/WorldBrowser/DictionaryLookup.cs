@@ -54,7 +54,6 @@ namespace WorldBrowser
             try
             {
                 StringBuilder response = new StringBuilder();
-                Thread.Sleep(4000);
                 using (TcpClient client = new TcpClient())
                 {
                     client.Connect(defaultServer, defaultPort);
